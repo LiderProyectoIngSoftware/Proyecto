@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/10/2012 06:13:19 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.pojos.Usuario" table="usuario" >
+        <id name="idUsuario" type="int">
+            <column name="IdUsuario" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="status" class="model.pojos.Status" fetch="select">
+            <column name="IdStatus" not-null="true" />
+        </many-to-one>
+        <many-to-one name="rol" class="model.pojos.Rol" fetch="select">
+            <column name="IdRol" not-null="true" />
+        </many-to-one>
+        <property name="primerNombre" type="string">
+            <column name="PrimerNombre" length="100" />
+        </property>
+        <property name="segundoNombre" type="string">
+            <column name="SegundoNombre" length="100" />
+        </property>
+        <property name="apellidoPaterno" type="string">
+            <column name="ApellidoPaterno" length="100" />
+        </property>
+        <property name="apellidoMaterno" type="string">
+            <column name="ApellidoMaterno" length="100" />
+        </property>
+        <property name="nick" type="string">
+            <column name="Nick" length="50" />
+        </property>
+        <property name="sexo" type="java.lang.Character">
+            <column name="Sexo" length="1" />
+        </property>
+        <property name="usuario" type="string">
+            <column name="Usuario" length="50" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="Password" length="50" not-null="true" />
+        </property>
+        <property name="fechaNacimiento" type="date">
+            <column name="FechaNacimiento" length="10" />
+        </property>
+        <set name="comentariosForUsuarioEmisor" inverse="true">
+            <key>
+                <column name="UsuarioEmisor" not-null="true" />
+            </key>
+            <one-to-many class="model.pojos.Comentario" />
+        </set>
+        <set name="comentariosForUsuarioReceptor" inverse="true">
+            <key>
+                <column name="UsuarioReceptor" not-null="true" />
+            </key>
+            <one-to-many class="model.pojos.Comentario" />
+        </set>
+    </class>
+</hibernate-mapping>

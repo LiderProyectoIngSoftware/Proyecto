@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/10/2012 06:13:19 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="model.pojos.Comentario" table="comentario" >
+        <id name="idComentario" type="int">
+            <column name="IdComentario" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="usuarioByUsuarioReceptor" class="model.pojos.Usuario" fetch="select">
+            <column name="UsuarioReceptor" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuarioByUsuarioEmisor" class="model.pojos.Usuario" fetch="select">
+            <column name="UsuarioEmisor" not-null="true" />
+        </many-to-one>
+        <many-to-one name="comentario" class="model.pojos.Comentario" fetch="select">
+            <column name="IdComentarioPadre" />
+        </many-to-one>
+        <property name="comentario_1" type="string">
+            <column name="Comentario" length="500" not-null="true" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="Fecha" length="10" not-null="true" />
+        </property>
+        <set name="comentarios" inverse="true">
+            <key>
+                <column name="IdComentarioPadre" />
+            </key>
+            <one-to-many class="model.pojos.Comentario" />
+        </set>
+    </class>
+</hibernate-mapping>
