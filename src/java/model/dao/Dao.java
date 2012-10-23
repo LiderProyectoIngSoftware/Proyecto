@@ -3,7 +3,6 @@ package model.dao;
 import java.util.List;
 import model.hibernate.HibernateUtil;
 import model.pojos.Comentario;
-
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -91,7 +90,8 @@ public class Dao {
     }
     
     /**
-     * Refresca el valor del objeto , ya que Hibernate mantiene un valor viejo de la tupla hasta que se utiliza este metodo
+     * Refresca el valor del objeto , ya que Hibernate mantiene un valor viejo 
+     * de la tupla hasta que se utiliza este metodo
      * @param objeto objeto a refrescar
      */
     public void refreshObject(Object objeto){

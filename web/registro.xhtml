@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <title>Pagina de Registro</title>
+    </h:head>
+    <h:body>  
+        <h:form id="registro">    
+            <p:panel id="panel" header="Registrate en la red social">  
+            <p:messages id="msgs"/>  
+            <h:panelGrid columns="3">  
+                <h:outputLabel for="usuario" value="Ingresa el usuario que desees*" />  
+                <p:inputText id="usuario" value="#{personBean.usuario}" required="true" label="usuario">  
+                </p:inputText>  
+            <p:message for="usuario" display="icon"/>  
+            
+            <h:outputLabel for="nick" value="Ingresa el sobrenombre que prefieras*" />  
+            <p:inputText id="nick" value="#{personBean.nick}" required="true" label="nick">  
+            </p:inputText>  
+           
+            <p:message for="nick" display="icon"/>  
+                       
+            <h:outputLabel for="contrasena" value="Elige tu contraseña: *" />
+            <p:password id="contrasena" value="#{passwordBean.contrasena}" match="pwd2" label="contrasena" required="true"/>
+            <br></br>
+            <h:outputLabel for="confirmaContrasena" value="Confirma tu contraseña: *" />
+            <p:password id="pwd2" value="#{passwordBean.contrasena}" label="confirmaContraseña" required="true"/>
+            <br></br>
+
+        <p:commandButton id="btn" value="Registrar" update="panel" actionListener="#{personBean.registrar}"/>  
+           
+            </h:panelGrid>
+    </p:panel>
+        </h:form>
+    </h:body>
+</html>
+

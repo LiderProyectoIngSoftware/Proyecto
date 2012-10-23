@@ -20,17 +20,16 @@ public class Comentario  implements java.io.Serializable {
      private Date fecha;
      private Set comentarios = new HashSet(0);
 
-    public Comentario() {
-    }
-
-	
-    public Comentario(int idComentario, Usuario usuarioByUsuarioReceptor, Usuario usuarioByUsuarioEmisor, String comentario_1, Date fecha) {
+    public Comentario() {}
+    
+    public Comentario(int idComentario, Usuario usuarioByUsuarioReceptor, Usuario usuarioByUsuarioEmisor, String comentario_1, Date fecha){
         this.idComentario = idComentario;
         this.usuarioByUsuarioReceptor = usuarioByUsuarioReceptor;
         this.usuarioByUsuarioEmisor = usuarioByUsuarioEmisor;
         this.comentario_1 = comentario_1;
         this.fecha = fecha;
     }
+   
     public Comentario(int idComentario, Usuario usuarioByUsuarioReceptor, Usuario usuarioByUsuarioEmisor, Comentario comentario, String comentario_1, Date fecha, Set comentarios) {
        this.idComentario = idComentario;
        this.usuarioByUsuarioReceptor = usuarioByUsuarioReceptor;
@@ -48,6 +47,7 @@ public class Comentario  implements java.io.Serializable {
     public void setIdComentario(int idComentario) {
         this.idComentario = idComentario;
     }
+   
     public Usuario getUsuarioByUsuarioReceptor() {
         return this.usuarioByUsuarioReceptor;
     }
@@ -55,6 +55,7 @@ public class Comentario  implements java.io.Serializable {
     public void setUsuarioByUsuarioReceptor(Usuario usuarioByUsuarioReceptor) {
         this.usuarioByUsuarioReceptor = usuarioByUsuarioReceptor;
     }
+    
     public Usuario getUsuarioByUsuarioEmisor() {
         return this.usuarioByUsuarioEmisor;
     }
@@ -62,6 +63,7 @@ public class Comentario  implements java.io.Serializable {
     public void setUsuarioByUsuarioEmisor(Usuario usuarioByUsuarioEmisor) {
         this.usuarioByUsuarioEmisor = usuarioByUsuarioEmisor;
     }
+    
     public Comentario getComentario() {
         return this.comentario;
     }
@@ -69,6 +71,7 @@ public class Comentario  implements java.io.Serializable {
     public void setComentario(Comentario comentario) {
         this.comentario = comentario;
     }
+    
     public String getComentario_1() {
         return this.comentario_1;
     }
@@ -76,6 +79,7 @@ public class Comentario  implements java.io.Serializable {
     public void setComentario_1(String comentario_1) {
         this.comentario_1 = comentario_1;
     }
+  
     public Date getFecha() {
         return this.fecha;
     }
@@ -83,6 +87,7 @@ public class Comentario  implements java.io.Serializable {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
+    
     public Set getComentarios() {
         return this.comentarios;
     }
@@ -90,10 +95,6 @@ public class Comentario  implements java.io.Serializable {
     public void setComentarios(Set comentarios) {
         this.comentarios = comentarios;
     }
-
-
-
-
 }
 
 

@@ -1,14 +1,45 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>RedSocial</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+  
         <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+    <h:form id="ingreso">  
+  
+    <p:panel id="panel" header="Ingresa tu usuario y contraseña">  
+        <p:messages id="msgs"/>  
+        <h:panelGrid columns="3">  
+            <h:outputLabel for="usuario" value="Ingresa tu usuario" />  
+            <p:inputText id="usuario" value="#{personBean.usuario}" required="true" label="Firstname">  
+                <f:validateLength minimum="2" />  
+            </p:inputText>  
+            <p:message for="usuario" display="icon"/>  
+  
+            <h:outputLabel for="contraseña" value="Ingresa tu contraseña" />  
+            <p:password id="contraseña" value="#{personBean.contraseña}" label="contraseña" required="true">  
+                <f:validateLength minimum="2" />  
+                <p:ajax update="contraseña" event="keyup" />  
+            </p:password>  
+            <p:message for="contraseña" id="msgValidacion" display="icon"/>  
+  
+        </h:panelGrid>  
+  
+        <p:commandButton id="btn" value="Ingresar" update="panel" actionListener="#{personBean.autentificar}"/>  
+
+        <br></br>        si aun no estás registrado, haz click 
+        <h:link outcome="registro.xhtml" value="aqui" />
+        
+    </p:panel>  
+  
+</h:form>  
     </h:body>
+    
 </html>
 
