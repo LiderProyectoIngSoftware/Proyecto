@@ -6,40 +6,35 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
+        <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1"/> 
         <title>RedSocial</title>
     </h:head>
     <h:body>
-  
-        <br />
-    <h:form id="ingreso">  
-  
-    <p:panel id="panel" header="Ingresa tu usuario y contraseña">  
-        <p:messages id="msgs"/>  
-        <h:panelGrid columns="3">  
-            <h:outputLabel for="usuario" value="Ingresa tu usuario" />  
-            <p:inputText id="usuario" value="#{personBean.usuario}" required="true" label="Firstname">  
-                <f:validateLength minimum="2" />  
-            </p:inputText>  
-            <p:message for="usuario" display="icon"/>  
-  
-            <h:outputLabel for="contraseña" value="Ingresa tu contraseña" />  
-            <p:password id="contraseña" value="#{personBean.contraseña}" label="contraseña" required="true">  
-                <f:validateLength minimum="2" />  
-                <p:ajax update="contraseña" event="keyup" />  
-            </p:password>  
-            <p:message for="contraseña" id="msgValidacion" display="icon"/>  
-  
-        </h:panelGrid>  
-  
-        <p:commandButton id="btn" value="Ingresar" update="panel" actionListener="#{personBean.autentificar}"/>  
 
-        <br></br>        si aun no estás registrado, haz click 
-        <h:link outcome="registro.xhtml" value="aqui" />
-        
-    </p:panel>  
-  
-</h:form>  
+        <br />
+        <h:form id="ingreso">  
+
+            <p:panel id="panel" header="Ingresa tu usuario y contraseña">  
+                <p:messages id="msgs"/>
+                <h:panelGrid columns="2">  
+                    <h:outputLabel for="usuario" value="Ingresa tu usuario" />  
+                    <p:inputText id="usuario" value="#{sessionBean.usuario.usuario}" required="true" label="Usuario">  
+                        <f:validateLength minimum="5" />  
+                    </p:inputText>  
+
+                    <h:outputLabel for="contrasena" value="Ingresa tu contraseña" />  
+                    <p:password id="contrasena" value="#{sessionBean.usuario.password}" label="Contraseña" required="true">  
+                        <f:validateLength minimum="5" />
+                    </p:password>  
+                </h:panelGrid>  
+                <p:commandButton id="btn" value="Ingresar" update="panel" ajax="false" action="#{sessionBean.autenticar}"/>  
+                <br></br>        si aun no estás registrado, haz click 
+                <h:link outcome="registro.xhtml" value="aqui" />
+
+            </p:panel>  
+
+        </h:form>  
     </h:body>
-    
+
 </html>
 
