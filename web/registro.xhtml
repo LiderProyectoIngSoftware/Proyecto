@@ -10,41 +10,42 @@
     </h:head>
     <h:body>  
         <h:form id="registro">    
-            <p:panel id="panel" header="Registrate en la red social">  
+            <p:panel id="panel" header="Registrate en la red social"  width="800" height="400">  
             <p:messages id="msgs"/>  
             <h:panelGrid columns="3">  
                 <h:outputLabel for="usuario" value="Ingresa el usuario 
-                               que desees*" />  
+                               que desees:" />  
                 <p:inputText id="usuario" value="#{personBean.usuario}" 
                              required="true" label="usuario">  
                 </p:inputText>  
             <p:message for="usuario" display="icon"/>  
             
-            <h:outputLabel for="nick" value="Ingresa el sobrenombre que 
-                           prefieras*" />  
+            <h:outputLabel for="nick" value="Ingresa el sobrenombre(apodo) que 
+                           prefieras:" />  
             <p:inputText id="nick" value="#{personBean.nick}" 
                          required="true" label="nick">  
             </p:inputText>  
             <p:message for="nick" display="icon"/>  
               
-              <h:outputLabel for="email" value="Escribe tu correo electronico"/>  
+              <h:outputLabel for="email" value="Escribe tu correo 
+                             electronico:"/>  
                 <p:inputText id="email" value="#{personBean.email}" 
                              required="true" label="email">  
                 </p:inputText>  
             <p:message for="email" display="icon"/>  
             
-            <h:outputLabel for="contrasena" value="Elige tu contraseña: *" />
+            <h:outputLabel for="contrasena" value="Elige tu contraseña:" />
             <p:password id="contrasena" value="#{passwordBean.contrasena}" 
                         match="pwd2" label="contrasena" required="true"/>
             <br></br>
             <h:outputLabel for="confirmaContrasena" value="Confirma tu 
-                           contraseña: *" />
+                           contraseña: " />
             <p:password id="pwd2" value="#{passwordBean.contrasena}" 
                         label="confirmaContraseña" required="true"/>
             <br></br>
 
         <p:commandButton id="btn" value="Registrar" update="panel" 
-                         actionListener="#{personBean.registrar}"/>  
+                         actionListener="#{personBean.registrar}"/>             
            
             </h:panelGrid>
     </p:panel>

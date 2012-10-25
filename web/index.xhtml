@@ -13,25 +13,31 @@
     <h:body>
 
         <br />
-        <h:form id="ingreso">  
+        <h:form id="ingreso"  width="800" height="400">  
 
             <p:panel id="panel" header="Ingresa tu usuario y contraseña">  
                 <p:messages id="msgs"/>
                 <h:panelGrid columns="2">  
-                    <h:outputLabel for="usuario" value="Ingresa tu usuario" />  
+                    <h:outputLabel for="usuario" value="Ingresa tu usuario:" />  
                     <p:inputText id="usuario" value="#{sessionBean.usuario.usuario}" required="true" label="Usuario">  
                         <f:validateLength minimum="5" />  
                     </p:inputText>  
 
-                    <h:outputLabel for="contrasena" value="Ingresa tu contraseña" />  
+                    <h:outputLabel for="contrasena" value="Ingresa tu contraseña:" />  
                     <p:password id="contrasena" value="#{sessionBean.usuario.password}" label="Contraseña" required="true">  
                         <f:validateLength minimum="5" />
                     </p:password>  
+                    
+                   <h:link outcome="recuperarContrasena.xhtml" value="¿Olvidaste tu contraseña?" />
                 </h:panelGrid>  
+                
+               
                 <p:commandButton id="btn" value="Ingresar" update="panel" ajax="false" action="#{sessionBean.autenticar}"/>  
-                <br></br>        si aun no estás registrado, haz click 
+    
+                     <br></br>        si aun no estás registrado, haz click 
                 <h:link outcome="registro.xhtml" value="aqui" />
-
+                <br></br>
+           
             </p:panel>  
 
         </h:form>  
