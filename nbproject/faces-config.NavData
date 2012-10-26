@@ -4,6 +4,7 @@
     <Scope Scope="Project">
         <Node id="registro.xhtml" x="150" y="300" zoom="true"/>
         <Node id="index.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="recuperarContrasena.xhtml" x="400" y="150" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

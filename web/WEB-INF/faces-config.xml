@@ -37,5 +37,13 @@ http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
             <from-outcome>index</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
+    </navigation-rule> 
+    <navigation-rule>
+        <from-view-id>/registro.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>recuperar</from-outcome>
+            <to-view-id>/recuperarContrasena.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
+ 
 </faces-config>

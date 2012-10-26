@@ -41,6 +41,10 @@
         <property name="fechaNacimiento" type="date">
             <column name="FechaNacimiento" length="10" />
         </property>
+        
+        <property name="email" type="string">
+            <column name="Email" length="50" />
+        </property>
         <set name="comentariosForUsuarioEmisor" inverse="true">
             <key>
                 <column name="UsuarioEmisor" not-null="true" />

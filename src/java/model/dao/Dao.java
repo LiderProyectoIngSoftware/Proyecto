@@ -12,7 +12,7 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Criterion;
 
 /**
- *Data Abstract Object
+ *Data Abstract Object-
  * Clase que se encarga de las operaciones con la base de datos
  * @author alberto
  */
@@ -99,13 +99,6 @@ public class Dao {
      */
     public void refreshObject(Object objeto){
         session.refresh(objeto);
-    }
-    
-     //Metodo para registrar una cuenta
-    public void registerUser(String usuario,String nick, String email, String password) throws SQLException{        
-        String sql = "INSERT INTO `usuario'('usuario','nick','email',password') VALUES ('"+usuario+nick+"','"+email+"','"+password+"')";
-        SQLQuery ps = session.createSQLQuery(sql);
-        ps.executeUpdate();
     }
 
     public static void main(String[] args) {

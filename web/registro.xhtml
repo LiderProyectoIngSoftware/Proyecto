@@ -22,30 +22,30 @@
             
             <h:outputLabel for="nick" value="Ingresa el sobrenombre(apodo) que 
                            prefieras:" />  
-            <p:inputText id="nick" value="#{RegistroBean.usuario.nick}" 
+            <p:inputText id="nick" value="#{registroBean.usuario.nick}" 
                          required="true" label="nick">  
             </p:inputText>  
             <p:message for="nick" display="icon"/>  
               
               <h:outputLabel for="email" value="Escribe tu correo 
                              electronico:"/>  
-                <p:inputText id="email" value="#{RegistroBean.usuario.email}" 
+                <p:inputText id="email" value="#{registroBean.usuario.email}" 
                              required="true" label="email">  
                 </p:inputText>  
             <p:message for="email" display="icon"/>  
             
             <h:outputLabel for="contrasena" value="Elige tu contraseña:" />
-            <p:password id="contrasena" value="#{RegistroBean.usuario.contrasena}" 
+            <p:password id="contrasena" value="#{registroBean.usuario.password}" 
                         match="confirmaContrasena" label="contrasena" required="true"/>
             <br></br>
             <h:outputLabel for="confirmaContrasena" value="Confirma tu 
                            contraseña: " />
-            <p:password id="confirmaContrasena" value="#{RegistroBean.usuario.contrasena}" 
+            <p:password id="confirmaContrasena" value="#{registroBean.confirmaContrasena}" 
                         label="confirmaContraseña" required="true"/>
             <br></br>
 
         <p:commandButton id="btn" value="Registrar" update="panel" 
-                         actionListener="#{RegistroBean.registrar}"/>             
+                         actionListener="#{registroBean.registrar()}"/>             
            
             </h:panelGrid>
     </p:panel>

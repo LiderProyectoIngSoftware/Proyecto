@@ -9,12 +9,27 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.dao.Dao;
 import model.pojos.Usuario;
+import org.hibernate.Transaction;
 
 /**
  *
  * @author julio
  */
 public class RegistroBean {
+
+    /**
+     * @return the dao
+     */
+    public static Dao getDao() {
+        return dao;
+    }
+
+    /**
+     * @param aDao the dao to set
+     */
+    public static void setDao(Dao aDao) {
+        dao = aDao;
+    }
     private Usuario usuario;
     private static Dao dao;
     private String confirmaContrasena;
@@ -31,18 +46,29 @@ public class RegistroBean {
         this.usuario=usuario;
     }
     
+    /**
+     * Metodo para registrar usuarios
+     * @return
+     */
     public String registrar(){
-        try {
-            if(!usuario.getPassword().equals(confirmaContrasena)){
-                return "registro";
-            }
-            dao.registerUser("julio", "j", "ejemplo@mail.com", "password");
+            if(!usuario.getPassword().equals(confirmaContrasena)){                            
+                return "recuperar";
+            } 
+            dao.save(usuario);
             return "index";
-        } catch (SQLException ex) {
-            Logger.getLogger(RegistroBean.class.getName()).log(Level.SEVERE, null, ex);
-            return "index";
-        }
-      
-    
+    }
+
+    /**
+     * @return the confirmaContrasena
+     */
+    public String getConfirmaContrasena() {
+        return confirmaContrasena;
+    }
+
+    /**
+     * @param confirmaContrasena the confirmaContrasena to set
+     */
+    public void setConfirmaContrasena(String confirmaContrasena) {
+        this.confirmaContrasena = confirmaContrasena;
     }
 }

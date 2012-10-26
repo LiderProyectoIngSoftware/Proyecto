@@ -24,6 +24,7 @@ public class Usuario  implements java.io.Serializable {
      private String usuario;
      private String password;
      private Date fechaNacimiento;
+     private String email;
      private Set comentariosForUsuarioEmisor = new HashSet(0);
      private Set comentariosForUsuarioReceptor = new HashSet(0);
 
@@ -31,14 +32,15 @@ public class Usuario  implements java.io.Serializable {
     }
 
 	
-    public Usuario(int idUsuario, Status status, Rol rol, String usuario, String password) {
+    public Usuario(int idUsuario, Status status, Rol rol, String usuario, String password,String email) {
         this.idUsuario = idUsuario;
         this.status = status;
         this.rol = rol;
         this.usuario = usuario;
         this.password = password;
+        this.email=email;
     }
-    public Usuario(int idUsuario, Status status, Rol rol, String primerNombre, String segundoNombre, String apellidoPaterno, String apellidoMaterno, String nick, Character sexo, String usuario, String password, Date fechaNacimiento, Set comentariosForUsuarioEmisor, Set comentariosForUsuarioReceptor) {
+    public Usuario(int idUsuario, Status status, Rol rol, String primerNombre, String segundoNombre, String apellidoPaterno, String apellidoMaterno, String nick, Character sexo, String usuario, String password, Date fechaNacimiento,String email, Set comentariosForUsuarioEmisor, Set comentariosForUsuarioReceptor) {
        this.idUsuario = idUsuario;
        this.status = status;
        this.rol = rol;
@@ -51,6 +53,7 @@ public class Usuario  implements java.io.Serializable {
        this.usuario = usuario;
        this.password = password;
        this.fechaNacimiento = fechaNacimiento;
+       this.email=email;
        this.comentariosForUsuarioEmisor = comentariosForUsuarioEmisor;
        this.comentariosForUsuarioReceptor = comentariosForUsuarioReceptor;
     }
@@ -152,6 +155,20 @@ public class Usuario  implements java.io.Serializable {
     
     public void setComentariosForUsuarioReceptor(Set comentariosForUsuarioReceptor) {
         this.comentariosForUsuarioReceptor = comentariosForUsuarioReceptor;
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 
