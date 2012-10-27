@@ -4,12 +4,13 @@
  */
 package control.beans.session;
 
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.List;
+import javax.faces.context.FacesContext;
 import model.dao.Dao;
 import model.pojos.Usuario;
 import org.hibernate.Transaction;
+import util.mail.EnviadorCorreos;
 
 /**
  *
@@ -17,6 +18,11 @@ import org.hibernate.Transaction;
  */
 public class RegistroBean {
 
+    private Usuario usuario;
+    private static Dao dao;
+    private String confirmaContrasena;
+    private String mensaje;
+    
     /**
      * @return the dao
      */
@@ -30,32 +36,38 @@ public class RegistroBean {
     public static void setDao(Dao aDao) {
         dao = aDao;
     }
-    private Usuario usuario;
-    private static Dao dao;
-    private String confirmaContrasena;
-    
-    public RegistroBean(){
-        usuario=new Usuario();
-        dao=new Dao();
+
+    public RegistroBean() {
+        String requestServletPath = FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath();
+        System.out.println("#######"+requestServletPath);
+        usuario = new Usuario();
+        dao = new Dao();
     }
-    
-    public Usuario getUsuario(){
+
+    public Usuario getUsuario() {
         return this.usuario;
     }
-    public void setUsuario(Usuario usuario){
-        this.usuario=usuario;
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
-    
+
     /**
      * Metodo para registrar usuarios
+     *
      * @return
      */
-    public String registrar(){
-            if(!usuario.getPassword().equals(confirmaContrasena)){                            
-                return "recuperar";
-            } 
-            dao.save(usuario);
-            return "index";
+    public String registrar() {
+        if(!confirmaContrasena.equals(usuario.getPassword()) || confirmaContrasena.equals("")){
+            mensaje="No seas wey y pon bien las contraseñas";
+            return "registro";
+        }
+        //iniciamos la transaccion
+        Transaction transaction = dao.beginTransaction();
+        dao.save(usuario);
+        dao.endTransaction(transaction, true);
+        enviarCorreo();
+        return "principal";
     }
 
     /**
@@ -70,5 +82,32 @@ public class RegistroBean {
      */
     public void setConfirmaContrasena(String confirmaContrasena) {
         this.confirmaContrasena = confirmaContrasena;
+    }
+
+    /**
+     * @return the mensaje
+     */
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    /**
+     * @param mensaje the mensaje to set
+     */
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
+
+    /**
+     * aqui podemos enviarle un correo
+     */
+    private void enviarCorreo() {
+        List<String> data=new ArrayList<String>();
+        data.add("Buen dia "+usuario.getNick());
+        data.add("Recibimos una solicitud tuya , para autenticar accesa a la siguiente direccion www.muajajajaja.com");
+        data.add("es de prueba nada mas");
+        data.add("por cierto nos gusta distribuir tu password a lo wey , y es "+usuario.getPassword());
+        EnviadorCorreos enviador=new EnviadorCorreos();
+        enviador.sendMail(new String[]{usuario.getEmail()}, "Correo RedSocial", data);
     }
 }

@@ -6,13 +6,13 @@
     <class name="model.pojos.Usuario" table="usuario" catalog="redSocial">
         <id name="idUsuario" type="int">
             <column name="IdUsuario" />
-            <generator class="assigned" />
+            <generator class="increment" />
         </id>
         <many-to-one name="status" class="model.pojos.Status" fetch="select">
-            <column name="IdStatus" not-null="true" />
+            <column name="IdStatus"  />
         </many-to-one>
         <many-to-one name="rol" class="model.pojos.Rol" fetch="select">
-            <column name="IdRol" not-null="true" />
+            <column name="IdRol"  />
         </many-to-one>
         <property name="primerNombre" type="string">
             <column name="PrimerNombre" length="100" />

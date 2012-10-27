@@ -1,54 +1,101 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       >
     <h:head>
+        <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1"/> 
         <title>Pagina de Registro</title>
     </h:head>
     <h:body>  
-        <h:form id="registro">    -
-            <p:panel id="panel" header="Registrate en la red social" >  
-            <p:messages id="msgs"/>  
-            <h:panelGrid columns="3">  
-                <h:outputLabel for="usuario" value="Ingresa el usuario 
-                               que desees:" />  
-                <p:inputText id="usuario" value="#{registroBean.usuario.usuario}" 
-                             required="true" label="usuario">  
-                </p:inputText>  
-            <p:message for="usuario" display="icon"/>  
-            
-            <h:outputLabel for="nick" value="Ingresa el sobrenombre(apodo) que 
-                           prefieras:" />  
-            <p:inputText id="nick" value="#{registroBean.usuario.nick}" 
-                         required="true" label="nick">  
-            </p:inputText>  
-            <p:message for="nick" display="icon"/>  
-              
-              <h:outputLabel for="email" value="Escribe tu correo 
-                             electronico:"/>  
-                <p:inputText id="email" value="#{registroBean.usuario.email}" 
-                             required="true" label="email">  
-                </p:inputText>  
-            <p:message for="email" display="icon"/>  
-            
-            <h:outputLabel for="contrasena" value="Elige tu contraseña:" />
-            <p:password id="contrasena" value="#{registroBean.usuario.password}" 
-                        match="confirmaContrasena" label="contrasena" required="true"/>
-            <br></br>
-            <h:outputLabel for="confirmaContrasena" value="Confirma tu 
-                           contraseña: " />
-            <p:password id="confirmaContrasena" value="#{registroBean.confirmaContrasena}" 
-                        label="confirmaContraseña" required="true"/>
-            <br></br>
-
-        <p:commandButton id="btn" value="Registrar" update="panel" 
-                         actionListener="#{registroBean.registrar()}"/>             
-           
+        <h:form id="registro">    
+            <h:panelGrid columns="1" style="border-color: blue" width="100%">
+                <h:outputText value="${registroBean.mensaje}" style="color: red"/>
             </h:panelGrid>
-    </p:panel>
+            <p:tabView>
+                <p:tab title="¿Quien eres?">
+                    <h:panelGrid columns="3">  
+                        <h:outputLabel for="usuario" value="Tu primer nombre es ..." 
+                                       />  
+                        <p:inputText id="primNom" value="#{registroBean.usuario.primerNombre}" 
+                                     required="true" label="Primer Nombre">  
+                        </p:inputText>  
+                        <p:message for="primNom" display="icon"/>  
+
+                        <h:outputLabel for="segunNom" value="Si tienes segundo nombre , ¿cual es?" />  
+                        <p:inputText id="segunNom" value="#{registroBean.usuario.segundoNombre}" 
+                                     label="Segundo Nombre">  
+                        </p:inputText>  
+                        <p:message for="segunNom" display="icon"/> 
+
+
+                        <h:outputLabel for="apPat" value="Tu apellido paterno es ... " />  
+                        <p:inputText id="apPat" required="true" value="#{registroBean.usuario.apellidoPaterno}" 
+                                     label="Apellido Paterno">  
+                        </p:inputText>  
+                        <p:message for="apPat" display="icon"/> 
+
+
+                        <h:outputLabel for="apMat" value="Tu apellido materno es ... " />  
+                        <p:inputText id="apMat" value="#{registroBean.usuario.apellidoMaterno}" 
+                                     label="Apellido Materno">  
+                        </p:inputText>  
+                        <p:message for="apMat" display="icon"/> 
+
+                        <h:outputLabel for="fecNac" value="Naciste el ... " />  
+                        <p:calendar required="true" id="fecNac" value="${registroBean.usuario.fechaNacimiento}"/>  
+                        <p:message for="fecNac" display="icon"/> 
+
+                        <h:outputLabel for="sexo" value="¿Hombre o Mujer?  " />  
+                        <p:selectOneRadio id="sexo" value="#{registroBean.usuario.sexo}">  
+                            <f:selectItem itemLabel="Mujer" itemValue="M" />  
+                            <f:selectItem itemLabel="Hombre" itemValue="F" />  
+                        </p:selectOneRadio>  
+                        <p:message for="sexo" display="icon"/> 
+
+
+                        <h:outputLabel for="email" value="Escribe tu correo 
+                                       electronico:"/>  
+                        <p:inputText id="email" value="#{registroBean.usuario.email}" 
+                                     required="true" label="email">  
+                        </p:inputText>  
+                        <p:message for="email" display="icon"/>  
+
+                        
+                        <h:outputLabel for="usuario" value="Ingresa el usuario 
+                                       que desees:" />  
+                        <p:inputText id="usuario" value="#{registroBean.usuario.usuario}" 
+                                     required="true" label="usuario">  
+                        </p:inputText>  
+                        <p:message for="usuario" display="icon"/>  
+
+                        <h:outputLabel for="nick" value="Ingresa el sobrenombre(apodo) que 
+                                       prefieras:" />  
+                        <p:inputText id="nick" value="#{registroBean.usuario.nick}" 
+                                     required="true" label="nick">  
+                        </p:inputText>  
+                        <p:message for="nick" display="icon"/>
+                        
+                        <h:outputLabel for="contrasena" value="Elige tu contraseña:" />
+                        <p:password id="contrasena" value="#{registroBean.usuario.password}" 
+                                    match="confirmaContrasena" label="contrasena" required="true"/>
+                        
+                        <p:message for="contrasena" display="icon"/>  
+                        
+                        <h:outputLabel for="confirmaContrasena" value="Confirma tu 
+                                       contraseña: " />
+                        <p:password id="confirmaContrasena" value="#{registroBean.confirmaContrasena}" 
+                                    label="Confirmacion Contraseña" required="true"/>
+                        
+                        <p:message for="confirmaContrasena" display="icon"/>  
+
+
+                    </h:panelGrid>
+                </p:tab>
+            </p:tabView>
+            <p:commandButton id="btn" value="Registrar" ajax="false" action="#{registroBean.registrar}"/>             
+
         </h:form>
     </h:body>
 </html>
