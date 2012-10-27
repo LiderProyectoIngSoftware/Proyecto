@@ -87,5 +87,5 @@ public class XMLReader {
 	public Map<String,String> getMap(){
 		return map;
 	}
-	
+        
 }

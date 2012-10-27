@@ -53,7 +53,7 @@ public class SessionBean {
         }
         //quiere decir que entonces si esta bien logeado
         this.usuario=executeSelect.get(0);
-        return "welcome";
+        return "principal";
     }  
     
 }

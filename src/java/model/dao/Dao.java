@@ -1,12 +1,10 @@
 package model.dao;
 
-import com.mysql.jdbc.PreparedStatement;
-import java.sql.SQLException;
+
 import java.util.List;
 import model.hibernate.HibernateUtil;
 import model.pojos.Comentario;
 import org.hibernate.Criteria;
-import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Criterion;

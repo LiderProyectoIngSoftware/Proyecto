@@ -16,8 +16,8 @@ http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>welcome</from-outcome>
-            <to-view-id>/registro.xhtml</to-view-id>
+            <from-outcome>principal</from-outcome>
+            <to-view-id>/principal.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>index</from-outcome>
@@ -34,16 +34,32 @@ http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
     <navigation-rule>
         <from-view-id>/registro.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>index</from-outcome>
-            <to-view-id>/index.xhtml</to-view-id>
+            <from-outcome>principal</from-outcome>
+            <to-view-id>/principal.xhtml</to-view-id>
+        </navigation-case>
+         <navigation-case>
+            <from-outcome>registro</from-outcome>
+            <to-view-id>/registro.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule> 
+    <managed-bean>
+        <description>Este bean controla cuando un usuario 
+                    quiere recuperar su contraseña.
+        </description>
+        <managed-bean-name>recuperaContrasenaBean</managed-bean-name>
+        <managed-bean-class>control.beans.session.RecuperaContrasenaBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
     <navigation-rule>
-        <from-view-id>/registro.xhtml</from-view-id>
+        <from-view-id>/recuperarContrasena.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>recuperar</from-outcome>
+            <from-outcome>recuperarContrasena</from-outcome>
             <to-view-id>/recuperarContrasena.xhtml</to-view-id>
+        </navigation-case>   
+        <navigation-case>
+            <from-outcome>confirmacionRecuperaContrasena</from-outcome>
+            <to-view-id>/confirmacionRecuperaContrasena.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
- 
+    
 </faces-config>

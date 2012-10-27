@@ -14,14 +14,14 @@
         <h:panelGrid columns="3">  
             <h:outputLabel for="email" value="Ingresa tu
                            correo electronico:" />  
-            <p:inputText id="email" value="#{personBean.email}" 
+            <p:inputText id="email" value="${recuperaContrasenaBean.email}" 
                          required="true" label="email">  
                 
             </p:inputText>  
             <p:message for="email" display="icon"/>  
             
         <p:commandButton id="btn" value="Recuperar" update="panel" 
-                         actionListener="#{personBean.recuperarContrasena}"/>  
+                         actionListener="${recuperaContrasenaBean.recuperarContrasena()}"/>  
         </h:panelGrid>
     </p:panel>
   </h:form>

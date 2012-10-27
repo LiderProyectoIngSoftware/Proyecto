@@ -1,13 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package control.beans.session;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.context.FacesContext;
 import model.dao.Dao;
+import model.pojos.Rol;
+import model.pojos.Status;
 import model.pojos.Usuario;
 import org.hibernate.Transaction;
 import util.mail.EnviadorCorreos;
@@ -64,7 +63,10 @@ public class RegistroBean {
         }
         //iniciamos la transaccion
         Transaction transaction = dao.beginTransaction();
+        usuario.setStatus(new Status(1, "activo"));
+        usuario.setRol(new Rol(1, "usuario"));
         dao.save(usuario);
+        System.out.println("primer nombre "+usuario.getPrimerNombre()+" su status es: "+usuario.getStatus()+" su rol es: "+usuario.getRol());
         dao.endTransaction(transaction, true);
         enviarCorreo();
         return "principal";

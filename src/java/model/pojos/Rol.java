@@ -50,8 +50,8 @@ public class Rol  implements java.io.Serializable {
     public void setUsuarios(Set usuarios) {
         this.usuarios = usuarios;
     }
-
-
+    
+    
 
 
 }
