@@ -28,9 +28,9 @@ http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
     <managed-bean>
         <description>Este Bean maneja variables de registro de la aplicacion</description>
         <managed-bean-name>registroBean</managed-bean-name>
-        <managed-bean-class>control.beans.session.RegistroBean</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
+        <managed-bean-class>control.beans.request.RegistroBean</managed-bean-class>
+    
+        <managed-bean-scope>request</managed-bean-scope></managed-bean>
     <navigation-rule>
         <from-view-id>/registro.xhtml</from-view-id>
         <navigation-case>
