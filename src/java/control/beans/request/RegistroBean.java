@@ -117,7 +117,7 @@ public class RegistroBean {
                 + "<td>";
         String cuerpo = "<p style=\"color:#003\"><font>" + "Hola " + usuario.getPrimerNombre() + " " + usuario.getApellidoPaterno() + "</font></p>"+
                 "<p style=\"color:#003\"><font>"+"Enviaste una solicitud a nuestro sitio , para validar tu cuenta da click aqui"+"</font></p>"+
-               "<a href=\"" + url+"/validar.xhtml?id="+usuario.getIdUsuario()+"\">" + url+"/validar" + "</a></td>";
+               "<a href=\"" + url+"/validarUsuario.xhtml?id="+usuario.getIdUsuario()+"\">" + url+"/validar" + "</a></td>";
                 
         String fin = "</td>"
                 + "</tr>"
