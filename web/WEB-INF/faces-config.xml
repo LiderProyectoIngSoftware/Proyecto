@@ -28,9 +28,9 @@ http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
     <managed-bean>
         <description>Este Bean maneja variables de registro de la aplicacion</description>
         <managed-bean-name>registroBean</managed-bean-name>
-        <managed-bean-class>control.beans.session.RegistroBean</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
+        <managed-bean-class>control.beans.request.RegistroBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope></managed-bean>
+   
     <navigation-rule>
         <from-view-id>/registro.xhtml</from-view-id>
         <navigation-case>
@@ -42,14 +42,15 @@ http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
             <to-view-id>/registro.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule> 
+    
     <managed-bean>
         <description>Este bean controla cuando un usuario 
                     quiere recuperar su contraseña.
         </description>
         <managed-bean-name>recuperaContrasenaBean</managed-bean-name>
-        <managed-bean-class>control.beans.session.RecuperaContrasenaBean</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
+        <managed-bean-class>control.beans.request.RecuperaContrasenaBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope></managed-bean>
+
     <navigation-rule>
         <from-view-id>/recuperarContrasena.xhtml</from-view-id>
         <navigation-case>

@@ -18,7 +18,7 @@ import org.hibernate.criterion.Restrictions;
 public class SessionBean {
 
     private Usuario usuario;
-    private static Dao dao;
+    public static Dao dao;
     /**
      * Creates a new instance of LoginBean
      */
