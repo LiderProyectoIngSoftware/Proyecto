@@ -19,7 +19,8 @@
                 <p:messages id="msgs"/>
                 <h:panelGrid columns="2">  
                     <h:outputLabel for="usuario" value="Ingresa tu usuario:" />  
-                    <p:inputText id="usuario" value="#{sessionBean.usuario.usuario}" required="true" label="Usuario">  
+                    <p:inputText id="usuario" value="#{sessionBean.usuario.usuario}" 
+                                 required="true" label="Usuario">  
                         <f:validateLength minimum="5" />  
                     </p:inputText>  
 

@@ -6,6 +6,7 @@ package control.beans.request;
 
 import control.beans.session.SessionBean;
 import control.config.Configurador;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import model.pojos.Rol;
 import model.pojos.Status;
@@ -27,6 +28,7 @@ public class RegistroBean {
      * Constructor
      */
     public RegistroBean() {
+        
         String requestServletPath = FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath();
         System.out.println("#######" + requestServletPath);
         usuario = new Usuario();
@@ -48,6 +50,10 @@ public class RegistroBean {
     public String registrar() {
         if (!confirmaContrasena.equals(usuario.getPassword()) || confirmaContrasena.equals("")) {
             mensaje = "No seas wey y pon bien las contraseñas";
+                        FacesContext.getCurrentInstance().addMessage(
+                    null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "tu contraseña y la confirmación no coinciden", "verifícalo"));  
+
             return "registro";
         }
         //iniciamos la transaccion

@@ -7,6 +7,8 @@ package control.beans.request;
 import control.config.Configurador;
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import model.dao.Dao;
 import model.pojos.Usuario;
 import org.hibernate.criterion.Criterion;
@@ -51,6 +53,10 @@ public class RecuperaContrasenaBean {
         List<Usuario> executeSelect = dao.executeSelect(Usuario.class, criterios);
         //si la lista es vacia quiere decir que no hay ningun usuario con ese nombre
         if(executeSelect.isEmpty()){
+                        FacesContext.getCurrentInstance().addMessage(
+                    null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "El email es inválido", "verifícalo"));  
+
             this.email="";
             return "recuperarContrasena";
         }

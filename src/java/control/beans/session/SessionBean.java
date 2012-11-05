@@ -6,6 +6,8 @@ package control.beans.session;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import model.dao.Dao;
 import model.pojos.Usuario;
 import org.hibernate.criterion.Criterion;
@@ -48,6 +50,10 @@ public class SessionBean {
         List<Usuario> executeSelect = dao.executeSelect(Usuario.class, criterios);
         //si la lista es vacia quiere decir que no hay ningun usuario con ese nombre
         if(executeSelect.isEmpty()){
+            FacesContext.getCurrentInstance().addMessage(
+                    null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "El usuario o contraseña está mal", "verifícalo"));  
+
             this.usuario=new Usuario();
             return "index";
         }
