@@ -49,10 +49,10 @@ public class RegistroBean {
      */
     public String registrar() {
         if (!confirmaContrasena.equals(usuario.getPassword()) || confirmaContrasena.equals("")) {
-            mensaje = "No seas wey y pon bien las contraseñas";
-                        FacesContext.getCurrentInstance().addMessage(
+            
+            FacesContext.getCurrentInstance().addMessage(
                     null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                    "tu contraseña y la confirmación no coinciden", "verifícalo"));  
+                    Configurador.get("mensajeErrorPasswordNoCoincide"), ""));  
 
             return "registro";
         }

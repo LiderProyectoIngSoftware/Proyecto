@@ -4,6 +4,7 @@
  */
 package control.beans.request;
 
+import control.config.ColectorMensajes;
 import control.config.Configurador;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,15 +56,14 @@ public class RecuperaContrasenaBean {
         if(executeSelect.isEmpty()){
                         FacesContext.getCurrentInstance().addMessage(
                     null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                    "El email es inválido", "verifícalo"));  
-
+                    ColectorMensajes.get("mensajeErrorRecuperaPassword"), "verifícalo"));  
             this.email="";
             return "recuperarContrasena";
         }
         //quiere decir que entonces si esta bien logeado
         Usuario usuario=executeSelect.get(0); 
         enviarCorreo(usuario);
-        return "confirmacionRecuperaContrasena";
+        return "principal";
     }  
     
     /**

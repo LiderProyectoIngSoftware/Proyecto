@@ -1,6 +1,5 @@
 package control.config;
 
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,11 +9,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *Clase que se encarga de tener un mapeo de las principales variables para el programa 
- * @author alberto
+ *
+ * @author julio
  */
-public class Configurador {
-
+public class ColectorMensajes {
+ 
     private static Map<String,String> mapeo=new HashMap<String, String>();
     
     public static String get(String key){
@@ -28,16 +27,14 @@ public class Configurador {
             Properties props = null;
         try {
             props = new Properties();
-            props.load(Configurador.class.getResourceAsStream("configuracion.properties"));
+            props.load(ColectorMensajes.class.getResourceAsStream("colectorMensajes.properties"));
         } catch (IOException ex) {
-            Logger.getLogger(Configurador.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ColectorMensajes.class.getName()).log(Level.SEVERE, null, ex);
         }
         Set<Object> keySet = props.keySet();
         for(Object o:keySet){
             mapeo.put(o.toString(),props.getProperty(o.toString()));
         }
     }
-    
-    
+   
 }
-

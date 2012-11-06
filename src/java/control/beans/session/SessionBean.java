@@ -4,6 +4,7 @@
  */
 package control.beans.session;
 
+import control.config.ColectorMensajes;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.application.FacesMessage;
@@ -52,8 +53,7 @@ public class SessionBean {
         if(executeSelect.isEmpty()){
             FacesContext.getCurrentInstance().addMessage(
                     null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                    "El usuario o contraseña está mal", "verifícalo"));  
-
+                    ColectorMensajes.get("mensajeErrorLogin"), "verifícalo"));  
             this.usuario=new Usuario();
             return "index";
         }
