@@ -8,10 +8,12 @@ import control.beans.session.SessionBean;
 import control.config.Configurador;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import model.dao.Dao;
 import model.pojos.Rol;
 import model.pojos.Status;
 import model.pojos.Usuario;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import util.mail.MailSender;
 
 /**
@@ -56,14 +58,15 @@ public class RegistroBean {
 
             return "registro";
         }
+        Dao dao=SessionBean.dao;
         //iniciamos la transaccion
         Transaction transaction = SessionBean.dao.beginTransaction();
-        usuario.setStatus(new Status(2, "Pendiente"));
-        usuario.setRol(new Rol(2, "Usuario"));
+        usuario.setStatus((Status)dao.executeSelectOneCriterion(Status.class, Restrictions.eq("idStatus", 2)).get(0));
+        usuario.setRol((Rol)dao.executeSelectOneCriterion(Rol.class, Restrictions.eq("idRol", 2)).get(0));
         SessionBean.dao.save(usuario);
         SessionBean.dao.endTransaction(transaction, true);
         enviarCorreo();
-        return "principal";
+        return "index";
     }
 
     /**
@@ -118,7 +121,7 @@ public class RegistroBean {
                 + "<td>";
         String cuerpo = "<p style=\"color:#003\"><font>" + "Hola " + usuario.getPrimerNombre() + " " + usuario.getApellidoPaterno() + "</font></p>"+
                 "<p style=\"color:#003\"><font>"+"Enviaste una solicitud a nuestro sitio , para validar tu cuenta da click aqui"+"</font></p>"+
-               "<a href=\"" + url+"/validarUsuario.xhtml?id="+usuario.getIdUsuario()+"\">" + url+"/validar" + "</a></td>";
+               "<a href=\"" + url+"/faces/validarUsuario.xhtml?id="+usuario.getIdUsuario()+"\">" + url+"/validar" + "</a></td>";
                 
         String fin = "</td>"
                 + "</tr>"

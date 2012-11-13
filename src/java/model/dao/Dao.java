@@ -90,6 +90,18 @@ public class Dao {
         return createCriteria.list();
     }
     
+    
+    public List executeSelectOneCriterion(Class table , Criterion criterion){
+        if(criterion==null){
+            return session.createCriteria(table).list();
+        }
+        
+        Criteria createCriteria = session.createCriteria(table);
+            createCriteria.add(criterion);
+        
+        return createCriteria.list();
+    }
+    
     /**
      * Refresca el valor del objeto , ya que Hibernate mantiene un valor viejo 
      * de la tupla hasta que se utiliza este metodo

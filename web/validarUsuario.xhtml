@@ -1,14 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-    </head>
-    <body>
-        <div>Aqui validariamos al usuario</div>
-    </body>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <h:head>
+        <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1"/> 
+        <title>RedSocial</title>
+    </h:head>
+    <h:body>
+
+        <br />  
+
+        <p:panel id="panel" header="Validacion Usuario">  
+            <c:if test="${validadorUsuario.sessionBean!=null}">
+                <h:outputText value="Tu usuario esta ahora validado ${validadorUsuario.sessionBean.usuario.primerNombre} ${validadorUsuario.sessionBean.usuario.apellidoPaterno}"/>
+            </c:if>
+            <c:if test="${validadorUsuario.sessionBean==null}">
+                <h:outputText value="¿Que haces aqui ehhhh?"/>
+
+            </c:if>
+            <br/>
+            
+
+                <h:form>
+                    <p:commandButton ajax="false" action="${validadorUsuario.redirigir}" value="${validadorUsuario.textoBoton}"/>
+                </h:form>
+
+        </p:panel>  
+
+    </h:body>
+
 </html>
+
