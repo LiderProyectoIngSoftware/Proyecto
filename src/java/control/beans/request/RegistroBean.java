@@ -5,7 +5,10 @@
 package control.beans.request;
 
 import control.beans.session.SessionBean;
+import control.config.ColectorMensajes;
 import control.config.Configurador;
+import java.sql.ResultSet;
+import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import model.dao.Dao;
@@ -51,14 +54,27 @@ public class RegistroBean {
      */
     public String registrar() {
         if (!confirmaContrasena.equals(usuario.getPassword()) || confirmaContrasena.equals("")) {
-            
-            FacesContext.getCurrentInstance().addMessage(
-                    null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                    Configurador.get("mensajeErrorPasswordNoCoincide"), ""));  
-
+        
+            enviaMensajeError(Configurador.get("mensajeErrorPasswordNoCoincide"), FacesContext.getCurrentInstance());
             return "registro";
         }
         Dao dao=SessionBean.dao;
+        //verificamos que no existan los datos de usuario
+        List res=dao.executeSelectOneCriterion(Usuario.class, 
+                Restrictions.eq("usuario", usuario.getUsuario()));
+        if(!res.isEmpty()){
+            enviaMensajeError(ColectorMensajes.get("mensajeErrorUsuarioDuplicado"),FacesContext.getCurrentInstance());
+            return "registro";
+        }
+        
+        //verificamos que no existan los datos de correo
+        res=dao.executeSelectOneCriterion(Usuario.class, 
+                Restrictions.eq("email", usuario.getEmail()));
+        if(!res.isEmpty()){
+            enviaMensajeError(ColectorMensajes.get("mensajeErrorCorreoDuplicado"), FacesContext.getCurrentInstance());
+            return "registro";
+        }
+        //en este punto sabemos que no existe en la base de datos
         //iniciamos la transaccion
         Transaction transaction = SessionBean.dao.beginTransaction();
         usuario.setStatus((Status)dao.executeSelectOneCriterion(Status.class, Restrictions.eq("idStatus", 2)).get(0));
@@ -129,5 +145,12 @@ public class RegistroBean {
         
 
         return cabecera + cuerpo + fin;
+    }
+
+    private void enviaMensajeError(String msj, FacesContext currentInstance) {
+          currentInstance.addMessage(
+                    null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    msj, ""));  
+
     }
 }
