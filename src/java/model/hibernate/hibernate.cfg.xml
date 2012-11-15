@@ -7,9 +7,11 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/redSocial</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
-    <mapping resource="model/pojos/Usuario.hbm.xml"/>
     <mapping resource="model/pojos/Rol.hbm.xml"/>
-    <mapping resource="model/pojos/Status.hbm.xml"/>
+    <mapping resource="model/pojos/Usuario.hbm.xml"/>
+    <mapping resource="model/pojos/StatusAmistad.hbm.xml"/>
+    <mapping resource="model/pojos/Amistad.hbm.xml"/>
+    <mapping resource="model/pojos/StatusUsuario.hbm.xml"/>
     <mapping resource="model/pojos/Comentario.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

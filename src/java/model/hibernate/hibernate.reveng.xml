@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
-  <schema-selection />
-  <table-filter match-name="usuario"/>
-  <table-filter match-name="status"/>
-  <table-filter match-name="rol"/>
+  <schema-selection match-catalog="redSocial"/>
   <table-filter match-name="comentario"/>
+  <table-filter match-name="rol"/>
+  <table-filter match-name="amistad"/>
+  <table-filter match-name="usuario"/>
+  <table-filter match-name="statusAmistad"/>
+  <table-filter match-name="statusUsuario"/>
 </hibernate-reverse-engineering>

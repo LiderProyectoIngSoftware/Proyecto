@@ -3,7 +3,7 @@ package control.beans.view;
 import control.beans.session.SessionBean;
 import java.util.Map;
 import javax.faces.context.FacesContext;
-import model.pojos.Status;
+import model.pojos.StatusUsuario;
 import model.pojos.Usuario;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
@@ -51,7 +51,7 @@ public class ValidadorUsuario {
     }
 
     private void cambiarStatusUsuario() {
-        sessionBean.getUsuario().setStatus((Status)sessionBean.dao.executeSelectOneCriterion(Status.class, Restrictions.eq("idStatus",1)).get(0));
+        sessionBean.getUsuario().setStatusUsuario((StatusUsuario)sessionBean.dao.executeSelectOneCriterion(StatusUsuario.class, Restrictions.eq("idStatus",1)).get(0));
         Transaction transaction = sessionBean.dao.beginTransaction();
         sessionBean.dao.update(sessionBean.getUsuario());
         sessionBean.dao.endTransaction(transaction, true);

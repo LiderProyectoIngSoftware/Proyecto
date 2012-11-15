@@ -1,5 +1,5 @@
 package model.pojos;
-// Generated 24/10/2012 08:52:29 AM by Hibernate Tools 3.2.1.GA
+// Generated 15/11/2012 09:54:45 AM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -13,8 +13,8 @@ public class Usuario  implements java.io.Serializable {
 
 
      private int idUsuario;
-     private Status status;
      private Rol rol;
+     private StatusUsuario statusUsuario;
      private String primerNombre;
      private String segundoNombre;
      private String apellidoPaterno;
@@ -32,18 +32,18 @@ public class Usuario  implements java.io.Serializable {
     }
 
 	
-    public Usuario(int idUsuario, Status status, Rol rol, String usuario, String password,String email) {
+    public Usuario(int idUsuario, Rol rol, StatusUsuario statusUsuario, String usuario, String password, String email) {
         this.idUsuario = idUsuario;
-        this.status = status;
         this.rol = rol;
+        this.statusUsuario = statusUsuario;
         this.usuario = usuario;
         this.password = password;
-        this.email=email;
+        this.email = email;
     }
-    public Usuario(int idUsuario, Status status, Rol rol, String primerNombre, String segundoNombre, String apellidoPaterno, String apellidoMaterno, String nick, Character sexo, String usuario, String password, Date fechaNacimiento,String email, Set comentariosForUsuarioEmisor, Set comentariosForUsuarioReceptor) {
+    public Usuario(int idUsuario, Rol rol, StatusUsuario statusUsuario, String primerNombre, String segundoNombre, String apellidoPaterno, String apellidoMaterno, String nick, Character sexo, String usuario, String password, Date fechaNacimiento, String email, Set comentariosForUsuarioEmisor, Set comentariosForUsuarioReceptor) {
        this.idUsuario = idUsuario;
-       this.status = status;
        this.rol = rol;
+       this.statusUsuario = statusUsuario;
        this.primerNombre = primerNombre;
        this.segundoNombre = segundoNombre;
        this.apellidoPaterno = apellidoPaterno;
@@ -53,7 +53,7 @@ public class Usuario  implements java.io.Serializable {
        this.usuario = usuario;
        this.password = password;
        this.fechaNacimiento = fechaNacimiento;
-       this.email=email;
+       this.email = email;
        this.comentariosForUsuarioEmisor = comentariosForUsuarioEmisor;
        this.comentariosForUsuarioReceptor = comentariosForUsuarioReceptor;
     }
@@ -65,19 +65,19 @@ public class Usuario  implements java.io.Serializable {
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
     }
-    public Status getStatus() {
-        return this.status;
-    }
-    
-    public void setStatus(Status status) {
-        this.status = status;
-    }
     public Rol getRol() {
         return this.rol;
     }
     
     public void setRol(Rol rol) {
         this.rol = rol;
+    }
+    public StatusUsuario getStatusUsuario() {
+        return this.statusUsuario;
+    }
+    
+    public void setStatusUsuario(StatusUsuario statusUsuario) {
+        this.statusUsuario = statusUsuario;
     }
     public String getPrimerNombre() {
         return this.primerNombre;
@@ -142,6 +142,13 @@ public class Usuario  implements java.io.Serializable {
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
+    public String getEmail() {
+        return this.email;
+    }
+    
+    public void setEmail(String email) {
+        this.email = email;
+    }
     public Set getComentariosForUsuarioEmisor() {
         return this.comentariosForUsuarioEmisor;
     }
@@ -155,20 +162,6 @@ public class Usuario  implements java.io.Serializable {
     
     public void setComentariosForUsuarioReceptor(Set comentariosForUsuarioReceptor) {
         this.comentariosForUsuarioReceptor = comentariosForUsuarioReceptor;
-    }
-
-    /**
-     * @return the email
-     */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     * @param email the email to set
-     */
-    public void setEmail(String email) {
-        this.email = email;
     }
 
 

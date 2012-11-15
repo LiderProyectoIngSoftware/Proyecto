@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 24/10/2012 08:52:30 AM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 15/11/2012 09:54:46 AM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="model.pojos.Usuario" table="usuario" catalog="redSocial">
         <id name="idUsuario" type="int">
             <column name="IdUsuario" />
-            <generator class="increment" />
+            <generator class="assigned" />
         </id>
-        <many-to-one name="status" class="model.pojos.Status" fetch="select">
-            <column name="IdStatus"  />
-        </many-to-one>
         <many-to-one name="rol" class="model.pojos.Rol" fetch="select">
-            <column name="IdRol"  />
+            <column name="IdRol" not-null="true" />
+        </many-to-one>
+        <many-to-one name="statusUsuario" class="model.pojos.StatusUsuario" fetch="select">
+            <column name="IdStatusUsuario" not-null="true" />
         </many-to-one>
         <property name="primerNombre" type="string">
             <column name="PrimerNombre" length="100" />
@@ -33,7 +33,7 @@
             <column name="Sexo" length="1" />
         </property>
         <property name="usuario" type="string">
-            <column name="Usuario" length="50" not-null="true" />
+            <column name="Usuario" length="50" not-null="true" unique="true" />
         </property>
         <property name="password" type="string">
             <column name="Password" length="50" not-null="true" />
@@ -41,9 +41,8 @@
         <property name="fechaNacimiento" type="date">
             <column name="FechaNacimiento" length="10" />
         </property>
-        
         <property name="email" type="string">
-            <column name="Email" length="50" />
+            <column name="Email" length="50" not-null="true" unique="true" />
         </property>
         <set name="comentariosForUsuarioEmisor" inverse="true">
             <key>

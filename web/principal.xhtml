@@ -14,28 +14,94 @@
 
         <p:layout fullPage="true">  
 
-            <p:layoutUnit position="north" size="100" header="Top" resizable="true" closable="true" collapsible="true">  
+            <p:layoutUnit position="north" size="10%" header="Top" resizable="true" closable="true" collapsible="true">  
                 <h:outputText value="Top unit content." />  
             </p:layoutUnit>  
 
-            <p:layoutUnit position="south" size="100" header="Bottom" resizable="true" closable="true" collapsible="true">  
+
+
+
+            <p:layoutUnit position="center">  
+                <div>
+                    <center>
+                        <table>
+                            <tr >
+                                <th style="width: 40%">
+
+                                    <p:panel header="Amigos Conectados">
+                                        todo el conetido de los amigos conectados
+                                    </p:panel>
+                                </th>
+                                <th style="width: 50%">
+                                    <img width="125" height="125" src="resources/img/logoRedSocial.PNG"/>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <h:outputText value="Estado actual &nbsp;"/>
+                                    <p:selectOneMenu >
+                                        <f:selectItem itemValue="1" itemLabel="Conectado"/>
+                                        <f:selectItem itemValue="2" itemLabel="Desconectado"/>
+                                        <f:selectItem itemValue="3" itemLabel="Ocupado"/>
+                                    </p:selectOneMenu>
+                                </th>
+                                <th>
+                                    <h1>Usuario</h1>
+                                </th>
+                            </tr>
+                        </table>
+                    </center>
+                </div>
+                <center>
+                    <div style="width: 60%">
+                        <p:scrollPanel style="width:100%;height:100px" >
+                            dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>dasdasdasdasd
+                            <br/>
+                        </p:scrollPanel>
+                    </div>
+                </center>
+            </p:layoutUnit>  
+
+
+            <p:layoutUnit position="south" size="10%" header="Bottom" resizable="true" closable="true" collapsible="true">  
                 <h:outputText value="South unit content." />  
             </p:layoutUnit>  
 
-            <p:layoutUnit position="west" size="200" header="Left" resizable="true" closable="true" collapsible="true">  
-                
-            </p:layoutUnit>  
-
-            <p:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true" effect="drop">  
-                <h:outputText value="Right unit content." />  
-            </p:layoutUnit>  
-
-            <p:layoutUnit position="center">  
-                <h:form>  
-                    This fullPage layout consists of five different layoutUnits which are resizable and closable by default.  
-
-                </h:form>  
-            </p:layoutUnit>  
 
         </p:layout>  
     </h:body>

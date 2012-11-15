@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 24/10/2012 08:52:30 AM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 15/11/2012 09:54:46 AM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="model.pojos.Comentario" table="comentario" catalog="redSocial">
         <id name="idComentario" type="int">
@@ -18,10 +18,13 @@
             <column name="IdComentarioPadre" />
         </many-to-one>
         <property name="comentario_1" type="string">
-            <column name="Comentario" length="500" not-null="true" />
+            <column name="Comentario" length="1000" not-null="true" />
         </property>
         <property name="fecha" type="date">
             <column name="Fecha" length="10" not-null="true" />
+        </property>
+        <property name="rutaFoto" type="string">
+            <column name="RutaFoto" length="100" />
         </property>
         <set name="comentarios" inverse="true">
             <key>
