@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package control.beans.request;
 
 import control.config.ColectorMensajes;
@@ -58,12 +55,17 @@ public class RecuperaContrasenaBean {
                     null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     ColectorMensajes.get("mensajeErrorRecuperaPassword"), "verifícalo"));  
             this.email="";
-            return "recuperarContrasena";
-        }
+
+        }else{
         //quiere decir que entonces si esta bien logeado
         Usuario usuario=executeSelect.get(0); 
         enviarCorreo(usuario);
-        return "principal";
+        FacesContext.getCurrentInstance().addMessage(
+                    null, new FacesMessage(FacesMessage.SEVERITY_INFO,
+                    "Se ha enviado una liga a tu correo", "verifícalo"));       
+        }
+        this.email="";
+        return "recuperarConstrasena";
     }  
     
     /**

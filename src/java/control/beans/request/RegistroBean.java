@@ -28,7 +28,7 @@ public class RegistroBean {
     private Usuario usuario;
     private String confirmaContrasena;
     private String mensaje;
-
+    
     /**
      * Constructor
      */

@@ -56,16 +56,7 @@ http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
         <navigation-case>
             <from-outcome>recuperarContrasena</from-outcome>
             <to-view-id>/recuperarContrasena.xhtml</to-view-id>
-        </navigation-case>   
-        <navigation-case>
-            <from-outcome>confirmacionRecuperaContrasena</from-outcome>
-            <to-view-id>/confirmacionRecuperaContrasena.xhtml</to-view-id>
-        </navigation-case>
-        
-        <navigation-case>
-            <from-outcome>principal</from-outcome>
-            <to-view-id>/principal.xhtml</to-view-id>
-        </navigation-case>
+        </navigation-case>      
     </navigation-rule>
     <managed-bean>
         <managed-bean-name>validadorUsuario</managed-bean-name>
