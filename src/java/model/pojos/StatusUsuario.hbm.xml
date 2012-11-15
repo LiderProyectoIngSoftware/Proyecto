@@ -3,9 +3,9 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 15/11/2012 09:54:46 AM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="model.pojos.Rol" table="rol" catalog="redSocial">
-        <id name="idRol" type="int">
-            <column name="IdRol" />
+    <class name="model.pojos.StatusUsuario" table="statusUsuario" catalog="redSocial">
+        <id name="idStatusUsuario" type="int">
+            <column name="IdStatusUsuario" />
             <generator class="assigned" />
         </id>
         <property name="descripcion" type="string">
@@ -13,7 +13,7 @@
         </property>
         <set name="usuarios" inverse="true">
             <key>
-                <column name="IdRol" not-null="true" />
+                <column name="IdStatusUsuario" not-null="true" />
             </key>
             <one-to-many class="model.pojos.Usuario" />
         </set>

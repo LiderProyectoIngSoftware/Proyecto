@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 24/10/2012 08:52:30 AM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 15/11/2012 09:54:46 AM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="model.pojos.Status" table="status" catalog="redSocial">
-        <id name="idStatus" type="int">
-            <column name="IdStatus" />
+    <class name="model.pojos.StatusAmistad" table="statusAmistad" catalog="redSocial">
+        <id name="idStatusAmistad" type="int">
+            <column name="IdStatusAmistad" />
             <generator class="assigned" />
         </id>
         <property name="descripcion" type="string">
             <column name="Descripcion" length="45" not-null="true" />
         </property>
-        <set name="usuarios" inverse="true">
+        <set name="amistads" inverse="true">
             <key>
-                <column name="IdStatus" not-null="true" />
+                <column name="IdStatusAmistad" not-null="true" />
             </key>
-            <one-to-many class="model.pojos.Usuario" />
+            <one-to-many class="model.pojos.Amistad" />
         </set>
     </class>
 </hibernate-mapping>
