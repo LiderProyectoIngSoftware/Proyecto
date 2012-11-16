@@ -7,7 +7,6 @@ package control.beans.request;
 import control.beans.session.SessionBean;
 import control.config.ColectorMensajes;
 import control.config.Configurador;
-import java.sql.ResultSet;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -57,6 +56,7 @@ public class RegistroBean {
         
             enviaMensajeError(Configurador.get("mensajeErrorPasswordNoCoincide"), FacesContext.getCurrentInstance());
             return "registro";
+
         }
         Dao dao=SessionBean.dao;
         //verificamos que no existan los datos de usuario

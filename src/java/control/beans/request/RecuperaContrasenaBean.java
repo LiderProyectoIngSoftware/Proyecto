@@ -51,19 +51,21 @@ public class RecuperaContrasenaBean {
         List<Usuario> executeSelect = dao.executeSelect(Usuario.class, criterios);
         //si la lista es vacia quiere decir que no hay ningun usuario con ese nombre
         if(executeSelect.isEmpty()){
-                        FacesContext.getCurrentInstance().addMessage(
-                    null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                    ColectorMensajes.get("mensajeErrorRecuperaPassword"), "verifícalo"));  
-            this.email="";
-
+            enviaMensaje(ColectorMensajes.get("mensajeErrorRecuperaPassword"), 
+                FacesContext.getCurrentInstance(),
+                FacesMessage.SEVERITY_ERROR);
+                this.email="";
+                
         }else{
         //quiere decir que entonces si esta bien logeado
         Usuario usuario=executeSelect.get(0); 
         enviarCorreo(usuario);
-        FacesContext.getCurrentInstance().addMessage(
-                    null, new FacesMessage(FacesMessage.SEVERITY_INFO,
-                    "Se ha enviado una liga a tu correo", "verifícalo"));       
+        enviaMensaje(ColectorMensajes.get("mensajeRecuperaContrasena"), 
+                FacesContext.getCurrentInstance(),
+                FacesMessage.SEVERITY_INFO);
+        
         }
+        
         this.email="";
         return "recuperarConstrasena";
     }  
@@ -119,4 +121,10 @@ public class RecuperaContrasenaBean {
         return cabecera + cuerpo.toString() + fin;
     }
 
+    private void enviaMensaje(String msj, FacesContext currentInstance,FacesMessage.Severity severityLevel) {
+          currentInstance.addMessage(
+                    null, new FacesMessage(severityLevel,
+                    msj, ""));  
+
+    }
 }

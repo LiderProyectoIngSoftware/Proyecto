@@ -58,6 +58,11 @@ public class SessionBean {
             return "index";
         }
         //quiere decir que entonces si esta bien logeado
+        
+        //verificamos si el usuario ya se validó
+        
+        
+        //está validado
         this.usuario=executeSelect.get(0);
         return "principal";
     }  
