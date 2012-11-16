@@ -58,13 +58,24 @@ public class SessionBean {
             return "index";
         }
         //quiere decir que entonces si esta bien logeado
+        this.usuario=executeSelect.get(0);
         
         //verificamos si el usuario ya se validó
+        if(usuario.getStatusUsuario().getDescripcion().equalsIgnoreCase("Pendiente")) {
+            enviaMensajeError(ColectorMensajes.get("mensajeErrorNoValidado"), FacesContext.getCurrentInstance());
+            return "index";
+        }
         
         
         //está validado
-        this.usuario=executeSelect.get(0);
+        
         return "principal";
     }  
     
+    private void enviaMensajeError(String msj, FacesContext currentInstance) {
+          currentInstance.addMessage(
+                    null, new FacesMessage(FacesMessage.SEVERITY_WARN,
+                    msj, ""));  
+
+    }
 }
