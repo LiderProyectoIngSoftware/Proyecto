@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+  <h:head>
+        <title>Reenv&iacute;o de liga de validaci&oacute;n</title>
+    </h:head>
+    <h:body>
+  <h:form id="recuperaLigaValidacion">  
+  
+      <p:panel id="panel" header="Reenv&iacute;o de liga de validaci&oacute;n" >  
+        <p:messages id="msgs"/>  
+        <h:panelGrid columns="2">  
+            
+           
+            <h:outputLabel for="mensaje" value="Si deseas que se te envíe la liga
+                                             "/>
+            <br></br>
+            <br></br>
+           
+            <h:outputLabel for="email" value="ingresa tu correo electronico:" />  
+             
+            <p:inputText id="email" value="${recuperaValidaciónBean.email}" 
+                         required="true" label="email">  
+            </p:inputText>  
+            <p:message for="email" display="icon"/>  
+            
+        <p:commandButton id="btn" value="Reenviar" update="panel" 
+                         actionListener="${recuperaValidaciónBean.recuperaLigaValidacion()}"/>  
+        </h:panelGrid>
+    </p:panel>
+  </h:form>
+    </h:body>
+</html>
+

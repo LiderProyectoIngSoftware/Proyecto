@@ -79,4 +79,11 @@ http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
         <managed-bean-class>control.beans.view.PerfilBean</managed-bean-class>
         <managed-bean-scope>view</managed-bean-scope>
     </managed-bean>
+    <managed-bean>
+        <description>Bean encargado de manejar las peticiones de reenvío para validar
+correo en la red social</description>
+        <managed-bean-name>recuperaValidaciónBean</managed-bean-name>
+        <managed-bean-class>control.beans.request.RecuperaValidaciónBean</managed-bean-class>
+    
+        <managed-bean-scope>request</managed-bean-scope></managed-bean>
 </faces-config>

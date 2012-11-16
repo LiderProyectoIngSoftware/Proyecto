@@ -63,7 +63,7 @@ public class SessionBean {
         //verificamos si el usuario ya se validó
         if(usuario.getStatusUsuario().getDescripcion().equalsIgnoreCase("Pendiente")) {
             enviaMensajeError(ColectorMensajes.get("mensajeErrorNoValidado"), FacesContext.getCurrentInstance());
-            return "index";
+            return "ingresoNoValidado";
         }
         
         
