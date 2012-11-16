@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 15/11/2012 09:54:46 AM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 15/11/2012 05:32:05 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="model.pojos.Usuario" table="usuario" catalog="redSocial">
         <id name="idUsuario" type="int">
             <column name="IdUsuario" />
-            <generator class="assigned" />
+            <generator class="increment" />
         </id>
         <many-to-one name="rol" class="model.pojos.Rol" fetch="select">
             <column name="IdRol" not-null="true" />
@@ -44,6 +44,10 @@
         <property name="email" type="string">
             <column name="Email" length="50" not-null="true" unique="true" />
         </property>
+        
+        <property name="rutaFoto" type="string">
+            <column name="RutaFoto" length="45" />
+        </property>
         <set name="comentariosForUsuarioEmisor" inverse="true">
             <key>
                 <column name="UsuarioEmisor" not-null="true" />
@@ -55,6 +59,18 @@
                 <column name="UsuarioReceptor" not-null="true" />
             </key>
             <one-to-many class="model.pojos.Comentario" />
+        </set>
+        <set name="amistadsForIdUsuario1" inverse="true">
+            <key>
+                <column name="IdUsuario1" not-null="true" />
+            </key>
+            <one-to-many class="model.pojos.Amistad" />
+        </set>
+        <set name="amistadsForIdUsuario2" inverse="true">
+            <key>
+                <column name="IdUsuario2" not-null="true" />
+            </key>
+            <one-to-many class="model.pojos.Amistad" />
         </set>
     </class>
 </hibernate-mapping>

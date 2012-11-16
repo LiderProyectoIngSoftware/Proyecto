@@ -83,4 +83,9 @@ http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>perfilBean</managed-bean-name>
+        <managed-bean-class>control.beans.view.PerfilBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
 </faces-config>

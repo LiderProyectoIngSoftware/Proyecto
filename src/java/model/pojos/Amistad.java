@@ -1,5 +1,5 @@
 package model.pojos;
-// Generated 15/11/2012 09:54:45 AM by Hibernate Tools 3.2.1.GA
+// Generated 15/11/2012 05:32:04 PM by Hibernate Tools 3.2.1.GA
 
 
 
@@ -10,18 +10,18 @@ public class Amistad  implements java.io.Serializable {
 
 
      private int idAmistad;
+     private Usuario usuarioByIdUsuario1;
+     private Usuario usuarioByIdUsuario2;
      private StatusAmistad statusAmistad;
-     private int idUsuario1;
-     private int idUsuario2;
 
     public Amistad() {
     }
 
-    public Amistad(int idAmistad, StatusAmistad statusAmistad, int idUsuario1, int idUsuario2) {
+    public Amistad(int idAmistad, Usuario usuarioByIdUsuario1, Usuario usuarioByIdUsuario2, StatusAmistad statusAmistad) {
        this.idAmistad = idAmistad;
+       this.usuarioByIdUsuario1 = usuarioByIdUsuario1;
+       this.usuarioByIdUsuario2 = usuarioByIdUsuario2;
        this.statusAmistad = statusAmistad;
-       this.idUsuario1 = idUsuario1;
-       this.idUsuario2 = idUsuario2;
     }
    
     public int getIdAmistad() {
@@ -31,26 +31,26 @@ public class Amistad  implements java.io.Serializable {
     public void setIdAmistad(int idAmistad) {
         this.idAmistad = idAmistad;
     }
+    public Usuario getUsuarioByIdUsuario1() {
+        return this.usuarioByIdUsuario1;
+    }
+    
+    public void setUsuarioByIdUsuario1(Usuario usuarioByIdUsuario1) {
+        this.usuarioByIdUsuario1 = usuarioByIdUsuario1;
+    }
+    public Usuario getUsuarioByIdUsuario2() {
+        return this.usuarioByIdUsuario2;
+    }
+    
+    public void setUsuarioByIdUsuario2(Usuario usuarioByIdUsuario2) {
+        this.usuarioByIdUsuario2 = usuarioByIdUsuario2;
+    }
     public StatusAmistad getStatusAmistad() {
         return this.statusAmistad;
     }
     
     public void setStatusAmistad(StatusAmistad statusAmistad) {
         this.statusAmistad = statusAmistad;
-    }
-    public int getIdUsuario1() {
-        return this.idUsuario1;
-    }
-    
-    public void setIdUsuario1(int idUsuario1) {
-        this.idUsuario1 = idUsuario1;
-    }
-    public int getIdUsuario2() {
-        return this.idUsuario2;
-    }
-    
-    public void setIdUsuario2(int idUsuario2) {
-        this.idUsuario2 = idUsuario2;
     }
 
 

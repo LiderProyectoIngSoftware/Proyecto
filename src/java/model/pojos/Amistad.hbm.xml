@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 15/11/2012 09:54:46 AM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 15/11/2012 05:32:05 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="model.pojos.Amistad" table="amistad" catalog="redSocial">
         <id name="idAmistad" type="int">
             <column name="IdAmistad" />
-            <generator class="assigned" />
+            <generator class="increment" />
         </id>
+        <many-to-one name="usuarioByIdUsuario1" class="model.pojos.Usuario" fetch="select">
+            <column name="IdUsuario1" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuarioByIdUsuario2" class="model.pojos.Usuario" fetch="select">
+            <column name="IdUsuario2" not-null="true" />
+        </many-to-one>
         <many-to-one name="statusAmistad" class="model.pojos.StatusAmistad" fetch="select">
             <column name="IdStatusAmistad" not-null="true" />
         </many-to-one>
-        <property name="idUsuario1" type="int">
-            <column name="IdUsuario1" not-null="true" />
-        </property>
-        <property name="idUsuario2" type="int">
-            <column name="IdUsuario2" not-null="true" />
-        </property>
     </class>
 </hibernate-mapping>
