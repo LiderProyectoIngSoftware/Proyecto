@@ -77,7 +77,7 @@ public class RegistroBean {
         //en este punto sabemos que no existe en la base de datos
         //iniciamos la transaccion
         Transaction transaction = SessionBean.dao.beginTransaction();
-        usuario.setStatusUsuario((StatusUsuario)dao.executeSelectOneCriterion(StatusUsuario.class, Restrictions.eq("idStatus", 2)).get(0));
+        usuario.setStatusUsuario((StatusUsuario)dao.executeSelectOneCriterion(StatusUsuario.class, Restrictions.eq("idStatusUsuario", 2)).get(0));
         usuario.setRol((Rol)dao.executeSelectOneCriterion(Rol.class, Restrictions.eq("idRol", 2)).get(0));
         SessionBean.dao.save(usuario);
         SessionBean.dao.endTransaction(transaction, true);

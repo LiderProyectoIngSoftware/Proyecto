@@ -51,7 +51,7 @@ public class ValidadorUsuario {
     }
 
     private void cambiarStatusUsuario() {
-        sessionBean.getUsuario().setStatusUsuario((StatusUsuario)sessionBean.dao.executeSelectOneCriterion(StatusUsuario.class, Restrictions.eq("idStatus",1)).get(0));
+        sessionBean.getUsuario().setStatusUsuario((StatusUsuario)sessionBean.dao.executeSelectOneCriterion(StatusUsuario.class, Restrictions.eq("idStatusUsuario",1)).get(0));
         Transaction transaction = sessionBean.dao.beginTransaction();
         sessionBean.dao.update(sessionBean.getUsuario());
         sessionBean.dao.endTransaction(transaction, true);
