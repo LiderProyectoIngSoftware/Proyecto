@@ -102,5 +102,22 @@ http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
         <managed-bean-name>comentarioBean</managed-bean-name>
         <managed-bean-class>control.beans.view.ComentarioBean</managed-bean-class>
     
-        <managed-bean-scope>view</managed-bean-scope></managed-bean>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+        
+        
+    <managed-bean>
+        <description>Este bean controla cuando un usuario 
+                    quiere recuperar liga de validación.
+        </description>
+        <managed-bean-name>recuperaValidacionBean</managed-bean-name>
+        <managed-bean-class>control.beans.request.RecuperaValidacionBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>recuperarConstrasena</from-outcome>
+            <to-view-id>/ingresoNoValidado.xhtml</to-view-id>
+        </navigation-case>
+
 </faces-config>
