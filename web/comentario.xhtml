@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1"/> 
+        <title>RedSocial</title>
+    </h:head>
+    <h:body>
+
+        <h:form>
+            <p:commandButton style="position: relative;" ajax="false" action="principal" value="Mi perfil"/>
+        </h:form>
+
+        <div>
+            <center>
+                ${comentarioBean.mensaje}
+                <table>
+                    <tr>
+                        <th>
+                            <h2>Escrito por ${comentarioBean.origen.nick}</h2>
+                        </th>
+                        <th>
+
+                            <h2>para ${comentarioBean.destino.nick}</h2>
+                        </th>
+                    </tr>
+                </table>
+            </center>
+        </div>
+        <center>
+
+
+
+            <br/>
+            <h:form enctype="multipart/form-data">
+                <div style="width: 90%">
+                    <p:inputTextarea rows="5" cols="30" style="width: 60%" value="${comentarioBean.comentario.contenido}" counter="counter" maxlength="50"       
+                                     counterTemplate="{0} caracteres restantes." autoResize="false"/>
+                    
+                    <br/>
+                    <br/>
+                    <h3>Imagen &nbsp;</h3>
+                    <p:fileUpload style="width: 30%" value="${comentarioBean.uploadedFile}"
+                                  mode="simple"  
+                                  update="messages"  
+                                  auto="true"  
+                                  sizeLimit="100000"   
+                                  allowTypes="/(\.|\/)(jpe?g|png)$/"/>  
+
+                    <p:growl id="messages" showDetail="true"/>  
+                    
+                    <p:commandButton ajax="false" action="${comentarioBean.enviarComentario}" value="Enviar"/>
+                </div>
+            </h:form>
+        </center>
+
+
+
+
+    </h:body>
+
+</html>
+

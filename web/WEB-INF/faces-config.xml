@@ -88,4 +88,28 @@ http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
         <managed-bean-class>control.beans.view.PrincipalBean</managed-bean-class>
     
         <managed-bean-scope>view</managed-bean-scope></managed-bean>
+    <managed-bean>
+        <managed-bean-name>perfilAmigo</managed-bean-name>
+        <managed-bean-class>control.beans.request.PerfilAmigo</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/principal.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>perfilAmigo</from-outcome>
+            <to-view-id>/perfilAmigo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/perfilAmigo.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>principal</from-outcome>
+            <to-view-id>/principal.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>comentarioBean</managed-bean-name>
+        <managed-bean-class>control.beans.view.ComentarioBean</managed-bean-class>
+    
+        <managed-bean-scope>view</managed-bean-scope></managed-bean>
 </faces-config>

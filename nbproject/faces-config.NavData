@@ -2,12 +2,14 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
+        <Node id="comentario.xhtml" x="150" y="300" zoom="true"/>
         <Node id="validarUsuario.xhtml" x="720" y="122" zoom="true"/>
         <Node id="registro.xhtml" x="131" y="333" zoom="true"/>
-        <Node id="index.xhtml" x="150" y="150" zoom="true"/>
         <Node id="principal.xhtml" x="670" y="211" zoom="true"/>
-        <Node id="recuperarContrasena.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="index.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="perfilAmigo.xhtml" x="698" y="321" zoom="true"/>
         <Node id="confirmacionRecuperaContrasena.xhtml" x="493" y="418" zoom="true"/>
+        <Node id="recuperarContrasena.xhtml" x="400" y="150" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>
