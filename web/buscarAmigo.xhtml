@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <h:head>
+        <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1"/> 
+        <title>RedSocial</title>
+    </h:head>
+    <h:body>
+
+        <h:form>
+            <p:commandButton ajax="false" style="position: relative; " action="principal" value="Mi Perfil"/>
+        </h:form>
+
+        <h:form>
+            <div>
+                <center>
+                    <h:outputText value="Utiliza el nick , correo o nombre del amigo a buscar"/>
+                    <h:panelGrid columns="2">
+                        <h:inputText value="${busquedaAmigos.cadenaBusqueda}"/>
+                        <p:commandButton  ajax="false" action="${busquedaAmigos.buscar}" value="Buscar"/>
+
+                    </h:panelGrid>
+                </center>
+            </div>
+            <center>
+                <h:panelGrid columns="1" id="divAmigos" >
+                    <c:if test="${busquedaAmigos.amigos.size()>0}">
+
+                        <h:dataTable border="2" value="${busquedaAmigos.amigos}" var="amigo" >
+                            <h:column>
+                                <f:facet name="header">
+                                    Nombre
+                                </f:facet>
+                                <h:outputText value="${amigo.primerNombre} ${amigo.apellidoPaterno}"/>
+                            </h:column>
+
+                            <h:column>
+
+                                <f:facet name="header">
+                                    Nick
+                                </f:facet>
+                                <h:outputText value="${amigo.nick}"/>
+                            </h:column>
+                            <h:column>
+
+                                <f:facet name="header">
+                                    Email
+                                </f:facet>
+                                <h:outputText value="${amigo.email}"/>
+                            </h:column>
+                  
+                            <h:column>
+                                <f:facet name="header">
+                                    
+                                </f:facet>
+                                Enviar solicitud
+                            </h:column>
+                        </h:dataTable>
+                    </c:if>
+
+                </h:panelGrid>
+            </center>
+        </h:form>
+    </h:body>
+
+</html>
+

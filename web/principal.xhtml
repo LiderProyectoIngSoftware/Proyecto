@@ -51,7 +51,7 @@
 
             <h:form>
                 <div style="width: 90%">
-                    <p:commandButton ajax="false" value="Buscar Amigo"/>
+                    <p:commandButton ajax="false" action="buscarAmigo" value="Buscar Amigo"/>
                     <p:commandButton ajax="false" type="button" onclick="window.location='comentario.xhtml?par=${principalBean.sessionBean.usuario.idUsuario}:${principalBean.sessionBean.usuario.idUsuario}:-1';" value="Nuevo Comentario"/>
                 </div>
             </h:form>

@@ -103,4 +103,9 @@ http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
         <managed-bean-class>control.beans.view.ComentarioBean</managed-bean-class>
     
         <managed-bean-scope>view</managed-bean-scope></managed-bean>
+    <managed-bean>
+        <managed-bean-name>busquedaAmigos</managed-bean-name>
+        <managed-bean-class>control.beans.view.BusquedaAmigos</managed-bean-class>
+    
+        <managed-bean-scope>session</managed-bean-scope></managed-bean>
 </faces-config>
