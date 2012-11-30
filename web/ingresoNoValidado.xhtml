@@ -21,13 +21,13 @@
            
             <h:outputLabel for="email" value="ingresa tu correo electronico:" />  
              
-            <p:inputText id="email" value="${recuperaValidaciónBean.email}" 
+            <p:inputText id="email" value="${recuperaValidacionBean.email}" 
                          required="true" label="email">  
             </p:inputText>  
             <p:message for="email" display="icon"/>  
             
         <p:commandButton id="btn" value="Reenviar" update="panel" 
-                         actionListener="${recuperaValidaciónBean.recuperaLigaValidacion()}"/>  
+                         actionListener="${recuperaValidacionBean.recuperaLigaValidacion()}"/>  
         </h:panelGrid>
     </p:panel>
   </h:form>

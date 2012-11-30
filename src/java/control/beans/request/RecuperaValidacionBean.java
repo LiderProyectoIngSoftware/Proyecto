@@ -17,15 +17,16 @@ import util.mail.MailSender;
  *
  * @author julio
  */
-public class RecuperaValidaciónBean {
+public class RecuperaValidacionBean {
 
     private String email;
     private static Dao dao;
     /**
-     * Crea una nueva instancia de RecuperaValidaciónBean
+     * Crea una nueva instancia de RecuperaValidacionBean
      */
-    public RecuperaValidaciónBean() {
+    public RecuperaValidacionBean() {
         email="";
+        dao=new Dao();
     }
 
     /**
