@@ -3,11 +3,47 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
+   <style type="text/css">
+  body{ 
+      color: black;
+        font-family: Verdana;
+        background:#436933;}
+  .panel {
+     width: 45%;
+     height: auto;
+      margin-top: 150px;
+      text-align:left;
+      margin-right:15px;
+  }
+  .logo{position:fixed;
+        
+     width: 100%;
+     height: 90px;
+     border-color: black; 
+     background-position:top;
+     border-style: solid;padding-right: 5px;
+  }
+  .pie{
+       height: 15px;
+     width: 100%;
+     border-color: black; 
+     border-style: solid; 
+     position:fixed; bottom:0;
+  }
+ 
+  .div1{float:top;
+      width:100%;
+background: url('RED2.jpg') repeat-x;
+  }
+  
+</style>
+    <div id="div1"><img class="logo" src="RED2.jpg" alt="" /></div>
     <h:head>
+        
         <title>Recupera tu contraseña</title>
     </h:head>
     <h:body>
-  <h:form id="ingreso">  
+  <h:form id="ingreso" style="position:absolute;margin-left:28% ; margin-top: 150px;" >  
   
     <p:panel id="panel" header="Recupera tu contraseña" >  
         <p:messages id="msgs"/>  
@@ -25,6 +61,7 @@
         </h:panelGrid>
     </p:panel>
   </h:form>
+            <div id="div2"><img class="pie" src="pie.jpg" alt="" /></div>
     </h:body>
 </html>
 

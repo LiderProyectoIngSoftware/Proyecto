@@ -7,6 +7,9 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
+   <style type="text/css">
+  p { color: black; font-family: Verdana;background:green; }
+</style>
     <managed-bean>
         <description>Este Bean maneja variables de sesion de la aplicacion</description>
         <managed-bean-name>sessionBean</managed-bean-name>

@@ -4,17 +4,54 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       >
+    <style type="text/css">
+  body{ color: black;
+        font-family: Verdana;
+        background:#436933;}
+  .registro {
+     width: 60%;
+     height: auto;
+      margin-top: 150px;
+      text-align:left;
+      margin-right:15px;
+  }
+  .logo{position:fixed;
+        
+     width: 100%;
+     height: 130px;
+     border-color: black; 
+     background-position:top;
+     border-style: solid;padding-right: 5px;
+  }
+  .pie{
+     width: 100%;
+     height: 15px;
+     border-color: black; 
+     border-style: solid; 
+     position:fixed; bottom:0;
+  }
+  .div1{width:100%;
+    background: url('RED2.jpg') repeat-x;
+  }
+  .reg{ 
+     width: 250px;
+     height: 250px;
+      background-color: white;
+      float:right;
+  }
+</style>
     <h:head>
         <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1"/> 
+         <div id="div1"><img class="logo" src="RED2.jpg" alt="" /></div>
         <title>Pagina de Registro</title>
     </h:head>
     <h:body>  
         <h:form id="registro">    
-            <h:panelGrid columns="1" style="border-color: blue" width="100%">
+            <h:panelGrid columns="1" style="border-color: blue; ">
                 <h:outputText value="${registroBean.mensaje}" style="color: red"/>
             </h:panelGrid>
-            <p:tabView>
-                <p:tab title="¿Quien eres?">
+            <p:tabView style="margin-top: 150px;">
+                <p:tab title="UNETE A *LA RED* " >
                     <h:panelGrid columns="3">  
                         <h:outputLabel for="usuario" value="Tu primer nombre es ..." 
                                        />  
@@ -47,7 +84,7 @@
                         <p:calendar required="true" id="fecNac" value="${registroBean.usuario.fechaNacimiento}"/>  
                         <p:message for="fecNac" display="icon"/> 
 
-                        <h:outputLabel for="sexo" value="¿Hombre o Mujer?  " />  
+                        <h:outputLabel for="sexo" value="¿ERES....?  " />  
                         <p:selectOneRadio id="sexo" value="#{registroBean.usuario.sexo}">  
                             <f:selectItem itemLabel="Mujer" itemValue="M" />  
                             <f:selectItem itemLabel="Hombre" itemValue="H" />  
@@ -90,13 +127,20 @@
                         
                         <p:message for="confirmaContrasena" display="icon"/>  
 
-
+                        <h:outputLabel for="CONDICIONES" value="TERMINOS Y CONDICIONES" />  
+                        <p:selectOneRadio id="condicion" >  
+                            <f:selectItem itemLabel="SI" itemValue="S" />  
+                            <f:selectItem itemLabel="NO" itemValue="N" />  
+                        </p:selectOneRadio>  
+                        
+                     <p:commandButton id="btn" value="REGISTRARSE" ajax="false" action="#{registroBean.registrar}" style="float:right;" /> 
                     </h:panelGrid>
-                </p:tab>
+                     </p:tab>
             </p:tabView>
-            <p:commandButton id="btn" value="Registrar" ajax="false" action="#{registroBean.registrar}"/>             
+                       
 
         </h:form>
+        <div id="div2"><img class="pie" src="pie.jpg" alt="" /></div>
     </h:body>
 </html>
 

@@ -5,18 +5,54 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-
-    <h:head>
-        <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1"/> 
-        <title>RedSocial</title>
+<style type="text/css">
+  body{ color: black;
+        font-family: Verdana;
+        background:#436933;}
+  .panel {
+     width: 45%;
+     height: auto;
+      margin-top: 150px;
+      text-align:left;
+      margin-right:15px;
+  }
+  .logo{position:fixed;
+        
+     width: 100%;
+     height: 90px;
+     border-color: black; 
+     background-position:top;
+     border-style: solid;padding-right: 5px;
+  }
+  .pie{
+       height: 15px;
+     width: 100%;
+     border-color: black; 
+     border-style: solid; 
+     position:fixed; bottom:0;
+  }
+  .div1{width:100%;
+        
+background: url('RED2.jpg') repeat-x;
+  }
+  .reg{ 
+     width: 250px;
+     height: 250px;
+      background-color: white;
+      float:right;
+  }
+</style>
+    
+    <h:head id="panelSup"> 
+        <div id="div1"><img class="logo" src="RED2.jpg" alt="" /></div><title>RedSocial</title>
     </h:head>
     <h:body>
-
         <br />
-        <h:form id="ingreso" >  
+        <h:form id="ingreso" style="float:right;" >  
 
-            <p:panel id="panel" header="Ingresa tu usuario y contraseña">  
-                <p:messages id="msgs"/>
+            <p:panel styleClass="panel" id="panel" header="Ingresa tu usuario y contraseña" style="float:right; 
+      font-size:17px;width:45%;height: auto;margin-top: 100px;margin-left:10px; ">  
+                <p:messages id="msgs1"/>
                 <h:panelGrid columns="2">  
                     <h:outputLabel for="usuario" value="Ingresa tu usuario:" />  
                     <p:inputText id="usuario" value="#{sessionBean.usuario.usuario}" 
@@ -26,22 +62,38 @@
 
                     <h:outputLabel for="contrasena" value="Ingresa tu contraseña:" />  
                     <p:password id="contrasena" value="#{sessionBean.usuario.password}" label="Contraseña" required="true">  
-                        <f:validateLength minimum="5" />
+                        <f:validateLength minimum="3" />
                     </p:password>  
                     
-                   <h:link outcome="recuperarContrasena.xhtml" value="¿Olvidaste tu contraseña?" />
+                  <h:link outcome="recuperarContrasena.xhtml" value="¿Olvidaste tu contraseña?" style="color:blue;float:left;font-size: 10px;" />
+                 
                 </h:panelGrid>  
                 
-               
-                <p:commandButton id="btn" value="Ingresar" update="panel" ajax="false" action="#{sessionBean.autenticar}"/>  
-    
-                     <br></br>        si aun no estás registrado, haz click 
-                <h:link outcome="registro.xhtml" value="aqui" />
-                <br></br>
-           
+                <p:commandButton id="btn" value="Ingresar" update="panel" ajax="false" action="#{sessionBean.autenticar}" style="float:right;font-size:15px;"/>  
+                 
+                 <p id="reg"><br>
+                         </br>¿ERES NUEVO?.........
+                        <br>Registrate Gratuitamente!!!</br>
+                <h:link outcome="registro.xhtml" value="REGISTRATE" style="color:blue; background-image: url('boton.PNG');float:right;" />
+                </p>
             </p:panel>  
-
+           
+            
+            <p:panel styleClass="pane2" id="panel2" header="Ultimas Noticias" style="float:left; 
+      font-size:17px;width:45%;height: auto;margin-top: 100px;margin-left:10px;  ">  
+                
+                <h:panelGrid columns="2">  
+                    <h:outputLabel for="usuario" style="float:top;" />  
+                        <p style="font-size: 120%;">La NASA desmiente “fin del mundo” del 21D...
+                            </p>
+                        <p style="font-size: 80%;">Según una encuesta de la empresa francesa de sondeos Ipsos, el 12 % de los argentinos cree verdadera la predicción de los mayas, 13% de los mexicanos y 20% españoles, ............................................. .....
+                            </p>
+                     </h:panelGrid> 
+            </p:panel>  
+                   
+                <br></br>
         </h:form>  
+    <div id="div2"><img class="pie" src="pie.jpg" alt="" /></div>
     </h:body>
 
 </html>

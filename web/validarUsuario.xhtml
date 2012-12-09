@@ -6,8 +6,40 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui"
       xmlns:c="http://java.sun.com/jsp/jstl/core">
-
-    <h:head>
+<style type="text/css">
+  body{ color: black;
+        font-family: Verdana;
+        background:#436933;}
+  .panel {
+     width: 45%;
+     height: auto;
+      margin-top: 150px;
+      text-align:left;
+      margin-right:15px;
+  }
+  .logo{position:fixed;
+        
+     width: 100%;
+     height: 90px;
+     border-color: black; 
+     background-position:top;
+     border-style: solid;padding-right: 5px;
+  }
+  .pie{
+       height: 15px;
+     width: 100%;
+     border-color: black; 
+     border-style: solid; 
+     position:fixed; bottom:0;
+  }
+  .div1{width:100%;
+        
+background: url('RED2.jpg') repeat-x;
+  }
+  
+</style>
+   
+    <h:head> <div id="div1"><img class="logo" src="RED2.jpg" alt="" /></div>
         <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1"/> 
         <title>RedSocial</title>
     </h:head>
@@ -15,7 +47,7 @@
 
         <br />  
 
-        <p:panel id="panel" header="Validacion Usuario">  
+        <p:panel id="panel" header="Validacion Usuario" style="position:absolute;margin-left:28% ; margin-top: 150px;">  
             <c:if test="${validadorUsuario.sessionBean!=null}">
                 <h:outputText value="Tu usuario esta ahora validado ${validadorUsuario.sessionBean.usuario.primerNombre} ${validadorUsuario.sessionBean.usuario.apellidoPaterno}"/>
             </c:if>
@@ -24,14 +56,12 @@
 
             </c:if>
             <br/>
-            
-
                 <h:form>
                     <p:commandButton ajax="false" action="${validadorUsuario.redirigir}" value="${validadorUsuario.textoBoton}"/>
                 </h:form>
 
         </p:panel>  
-        
+        <div id="div2"><img class="pie" src="pie.jpg" alt="" /></div>
     </h:body>
 
 </html>

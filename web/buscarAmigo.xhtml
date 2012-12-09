@@ -6,18 +6,51 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui"
       xmlns:c="http://java.sun.com/jsp/jstl/core">
-
+   <style type="text/css">
+  body{ 
+      color: black;
+        font-family: Verdana;
+        background:#436933;}
+  .panel {
+     width: 45%;
+     height: auto;
+      margin-top: 150px;
+      text-align:left;
+      margin-right:15px;
+  }
+  .logo{position:fixed;
+        
+     width: 100%;
+     height: 90px;
+     border-color: black; 
+     background-position:top;
+     border-style: solid;padding-right: 5px;
+  }
+  .pie{
+       height: 15px;
+     width: 100%;
+     border-color: black; 
+     border-style: solid; 
+     position:fixed; bottom:0;
+  }
+  .div1{float:top;
+      width:100%;
+background: url('RED2.jpg') repeat-x;
+  }
+  
+</style>
+  <div id="div1"><img class="logo" src="RED2.jpg" alt="" /></div>
     <h:head>
         <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1"/> 
         <title>RedSocial</title>
     </h:head>
     <h:body>
 
-        <h:form>
+        <h:form style="position:absolute; margin-top: 100px;">
             <p:commandButton ajax="false" style="position: relative; " action="principal" value="Mi Perfil"/>
         </h:form>
 
-        <h:form>
+        <h:form style="position:absolute;margin-left:15% ; margin-top: 150px;color: beige;">
             <div>
                 <center>
                     <h:outputText value="Utiliza el nick , correo o nombre del amigo a buscar"/>
@@ -28,7 +61,7 @@
                     </h:panelGrid>
                 </center>
             </div>
-            <center>
+            <center style="background: azure;color:black;">
                 <h:panelGrid columns="1" id="divAmigos" >
                     <c:if test="${busquedaAmigos.amigos.size()>0}">
 
@@ -67,6 +100,7 @@
                 </h:panelGrid>
             </center>
         </h:form>
+        <div id="div2"><img class="pie" src="pie.jpg" alt="" /></div>
     </h:body>
 
 </html>

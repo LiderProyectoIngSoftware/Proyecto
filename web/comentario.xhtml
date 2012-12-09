@@ -5,7 +5,40 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-
+   <style type="text/css">
+  body{ 
+      color: black;
+        font-family: Verdana;
+        background:#436933;}
+  .panel {
+     width: 45%;
+     height: auto;
+      margin-top: 150px;
+      text-align:left;
+      margin-right:15px;
+  }
+  .logo{position:fixed;
+        
+     width: 100%;
+     height: 90px;
+     border-color: black; 
+     background-position:top;
+     border-style: solid;padding-right: 5px;
+  }
+  .pie{
+       height: 15px;
+     width: 100%;
+     border-color: black; 
+     border-style: solid; 
+     position:fixed; bottom:0;
+  }
+  .div1{float:top;
+      width:100%;
+background: url('RED2.jpg') repeat-x;
+  }
+  
+</style>
+  <div id="div1"><img class="logo" src="RED2.jpg" alt="" /></div>
     <h:head>
         <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1"/> 
         <title>RedSocial</title>
@@ -13,20 +46,24 @@
     <h:body>
 
         <h:form>
-            <p:commandButton style="position: relative;" ajax="false" action="principal" value="Mi perfil"/>
+            <p:commandButton style="position: relative; margin-top: 100px;" ajax="false" action="principal" value="Mi perfil"/>
         </h:form>
-
-        <div>
+<p style="margin-left:15% ; margin-top: 20px;color: beige;">
+    Que nos quieres contar hoy?...............
+</p>
+        <div style="position:absolute;margin-left:15% ; margin-top: 97px;color: beige;">
             <center>
                 ${comentarioBean.mensaje}
                 <table>
                     <tr>
                         <th>
-                            <h2>Escrito por ${comentarioBean.origen.nick}</h2>
+                            <h2>Escrito por: ${comentarioBean.origen.nick}</h2><br>
+                            </br>
                         </th>
+                        
                         <th>
 
-                            <h2>para ${comentarioBean.destino.nick}</h2>
+                            <h2 style="margin-left:-358px;">Para: ${comentarioBean.destino.nick}</h2>
                         </th>
                     </tr>
                 </table>
@@ -38,14 +75,16 @@
 
             <br/>
             <h:form enctype="multipart/form-data">
-                <div style="width: 90%">
+                <div style="width: 90%;">
                     <p:inputTextarea rows="5" cols="30" style="width: 60%" value="${comentarioBean.comentario.contenido}" counter="counter" maxlength="50"       
                                      counterTemplate="{0} caracteres restantes." autoResize="false"/>
                     
                     <br/>
                     <br/>
-                    <h3>Imagen &nbsp;</h3>
-                    <p:fileUpload style="width: 30%" value="${comentarioBean.uploadedFile}"
+                    <div style="margin-top: 40px; board-color: black;board:5px;padding: 5px;">
+                        </div>
+                    <h3 style="width: 30%;position:absolute;margin-top: 70px;color: beige;text-align: center;">Publica una imagen o foto &nbsp;</h3>
+                    <p:fileUpload style="width: 30%;position:absolute; margin-top: 95px;" value="${comentarioBean.uploadedFile}"
                                   mode="simple"  
                                   update="messages"  
                                   auto="true"  
@@ -54,13 +93,13 @@
 
                     <p:growl id="messages" showDetail="true"/>  
                     
-                    <p:commandButton ajax="false" action="${comentarioBean.enviarComentario}" value="Enviar"/>
+                    <p:commandButton style="width: 30%;position:absolute;margin-top: 80px;" ajax="false" action="${comentarioBean.enviarComentario}" value="Enviar"/>
                 </div>
             </h:form>
+            
         </center>
 
-
-
+<div id="div2"><img class="pie" src="pie.jpg" alt="" /></div>
 
     </h:body>
 
